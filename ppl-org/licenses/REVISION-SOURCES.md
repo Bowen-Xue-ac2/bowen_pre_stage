@@ -13,3 +13,5 @@ Existing Lucide icons: ISC. Slidev, Vue, Seriph: MIT. Liberation fonts: SIL OFL.
 Google Animated Noto Emoji replaces Telemoji with Bowen's explicit approval on 2026-11-16. Happy U+1F604 and sad U+1F614 artwork: Google, CC BY 4.0. Attribution, official source links, exact pinned mirror provenance, SHA256 hashes, and presentation changes are recorded in NOTO-ATTRIBUTION.md and ../emoji/manifest.json. The JSON artwork is unmodified. lottie-web 5.13.0 is MIT; its full license is adjacent. All runtime assets are local.
 
 Telemoji was investigated at https://github.com/saeedtahmtan/telemoji . Its README redirects original Telegram artwork to Telegram terms without a clear standalone redistribution grant. No Telemoji artwork or code is bundled.
+
+P09 whole-character bodybuilder silhouette is original SVG artwork made for this revision: exaggerated shoulders, torso, arms and legs, in the existing outlined signage style. No external bodybuilder artwork or rig was copied.
