@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="description" content="技术面试题演示"><title>技术面试</title><style>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="description" content="技术面试题演示"><title>技术面试</title><style>
 :root{color-scheme:light;--ink:#202c28;--muted:#62716a;--accent:#17634d;--line:#d9e2dd;--paper:#fafbf9;--soft:#f0f4f0;font-family:Inter,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;font-synthesis:none}
 *{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden}body{background:var(--paper);color:var(--ink);font-size:16px;line-height:1.65}button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible,.track:focus-visible{outline:3px solid var(--accent);outline-offset:3px}button:disabled{opacity:.28;cursor:default}button,code{font-variant-numeric:tabular-nums}button{min-width:36px;min-height:36px}code{font-family:"SFMono-Regular",Consolas,"Noto Sans Mono CJK SC",monospace;font-size:.87em;color:#255a49}p{margin:0}strong{font-weight:650}h1,h2,h3{margin:0;line-height:1.25}h2{font-size:clamp(25px,2.6vw,43px);letter-spacing:-.055em;font-weight:650}h3{font-size:15px;font-weight:650;margin-bottom:10px}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.shell{height:100dvh;display:grid;grid-template-rows:52px minmax(0,1fr) 58px}.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 3.6vw;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.18em;color:var(--muted)}.topbar span{display:flex;align-items:center;gap:10px}.topbar span:before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%}.fullscreen{border:0;background:transparent;font-size:23px;line-height:1;letter-spacing:0}.track{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;position:relative;touch-action:pan-x pan-y}.track::-webkit-scrollbar{display:none}.slide{flex:0 0 100%;min-width:0;height:100%;scroll-snap-align:start;scroll-snap-stop:always;padding:24px 3.6vw 20px;overflow-y:auto;display:flex;flex-direction:column;gap:22px}.slide-heading{flex:none}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.14em;margin-bottom:10px;font-weight:650}.slide-body,.material-panel{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);gap:3.1vw;min-height:0;flex:1}.materials,.ask{min-width:0}.materials{display:flex;flex-direction:column;gap:14px}.ask{border-left:1px solid var(--line);padding-left:2.6vw;display:flex;flex-direction:column;gap:20px}.scenario{font-size:16px;line-height:1.7;max-width:76ch}.scenario strong{color:var(--accent)}.stack{display:grid;gap:14px;flex:1;align-content:start}.code{margin:0;background:var(--soft);border:1px solid #dfe6df;border-radius:8px;overflow:hidden;flex-shrink:0}.code figcaption{padding:9px 15px;border-bottom:1px solid #dfe6df;font-size:11px;letter-spacing:.06em;font-weight:650;color:var(--muted)}pre{padding:13px 16px;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.55;tab-size:2}pre code{font-size:inherit;color:#234437}.comment{color:#647b6e}.code.compact pre{font-size:12px;line-height:1.55;padding:11px 14px}.material-note{font-size:12px;color:var(--muted);line-height:1.7}.questions{padding:0;margin:0;list-style:none;display:flex;flex-direction:column;gap:25px}.questions li{display:grid;grid-template-columns:25px minmax(0,1fr);gap:10px}.qnum{font-size:11px;color:var(--accent);padding-top:4px;font-weight:650}.questions p{font-size:clamp(16px,1.23vw,21px);line-height:1.75;letter-spacing:-.015em}.facts{padding-top:18px;border-top:1px solid var(--line);font-size:13px;line-height:1.75;color:#52645b;display:flex;flex-direction:column;gap:11px}.facts strong{color:var(--ink)}table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}caption{text-align:left;font-size:11px;color:var(--accent);margin-bottom:8px}th{text-align:left;font-size:11px;color:var(--muted);font-weight:550}td,th{padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}th:first-child,td:first-child{padding-left:0}td:first-child{color:#355d4e}td:last-child,th:last-child{padding-right:0}.diagram{margin:0;min-height:0;display:flex;justify-content:center}.diagram svg{width:100%;max-height:100%;height:auto;display:block}.ask .diagram{max-height:320px;flex:1;min-height:150px}.code-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.four-types{display:grid;grid-template-columns:1fr 1fr;font-size:12px}.choice-row{display:flex;gap:8px;flex-wrap:wrap}.choice-row span{font-size:12px;border:1px solid #b8c9be;border-radius:4px;padding:5px 9px;color:var(--accent)}.retrieval-slide .ask{gap:15px}.retrieval-slide .questions{gap:17px}.retrieval-slide .ask .diagram{max-height:195px;min-height:120px}.retrieval-slide .facts{gap:6px;font-size:12px;padding-top:12px}.isolation-slide .questions{gap:22px}.material-tabs{display:flex;gap:8px;flex:none;margin-top:-7px}.material-tabs button{border:1px solid transparent;background:transparent;color:var(--muted);padding:5px 14px;font-size:12px;border-radius:5px}.material-tabs button[aria-selected=true]{border-color:#adc1b5;background:#e8f0e9;color:var(--accent);font-weight:650}.material-panel[hidden]{display:none}.peak-slide{gap:17px}.peak-slide h2{font-size:clamp(25px,2.4vw,40px)}.peak-slide .questions{gap:15px}.peak-slide .ask{gap:16px}.peak-slide .facts{font-size:12px;gap:12px;padding-top:15px}.logs-grid{display:grid;grid-template-columns:.9fr 1.4fr;gap:12px;align-content:start}.logs-grid .code:nth-child(3){grid-column:2;grid-row:1/3}.logs-grid .code:nth-child(4){grid-column:1/-1}.logs-grid .code pre{font-size:11.5px;white-space:pre;padding:9px 12px;overflow-x:auto}.logs-grid .code figcaption{padding:7px 12px}.peak-slide .materials>table{font-size:12px}.peak-slide .materials>table td{padding:5px 8px}.events-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:20px}.events-grid table{font-size:11.5px}.events-grid td,.events-grid th{padding:6px 5px}.peak-slide #material-1 .materials>.diagram{height:300px}.peak-slide #material-2 .materials .code pre{font-size:12px;line-height:1.43;white-space:pre-wrap}.peak-slide #material-2 .ask .diagram{max-height:225px;min-height:145px}.peak-slide #material-2 .facts{font-size:12px;gap:12px}.peak-slide #material-2 .material-note{font-size:11px}.footer{border-top:1px solid var(--line);padding:0 3.6vw;display:flex;align-items:center;justify-content:space-between;gap:16px}.markers{display:flex;gap:8px}.markers button{background:transparent;border:0;min-width:36px;min-height:36px;font-size:11px;color:var(--muted);border-bottom:2px solid transparent}.markers button[aria-current=true]{color:var(--accent);font-weight:700;border-bottom-color:var(--accent)}.nav-controls{display:flex;gap:6px;align-items:center}.nav-controls button{background:transparent;border:1px solid var(--line);border-radius:5px;width:40px;font-size:18px}.count{font-size:11px;color:var(--muted);margin-right:16px;letter-spacing:.08em}
 @media(min-height:1000px) and (min-width:1100px){.slide{padding-top:34px;gap:28px}pre{font-size:16px}.code.compact pre{font-size:14px}.scenario{font-size:18px}.questions{gap:32px}.facts{font-size:15px}table{font-size:15px}.material-note{font-size:13px}.peak-slide .facts{font-size:14px}.peak-slide .logs-grid pre{font-size:14px}.peak-slide #material-2 .materials .code pre{font-size:14px}.peak-slide #material-2 .facts{font-size:14px}.peak-slide #material-2 .material-note{font-size:12px}.peak-slide #material-2 .ask .diagram{max-height:285px}.peak-slide #material-1 .materials>.diagram{height:350px}.events-grid table{font-size:13px}.peak-slide .materials>table{font-size:14px}}
@@ -8,10 +8,55 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 @media(pointer:coarse){button{min-height:44px}.markers button{min-width:32px}}
 @media print{@page{size:A4 landscape;margin:12mm}html,body{height:auto;overflow:visible}.shell{display:block;height:auto}.topbar,.footer,.material-tabs{display:none}.track{display:block;overflow:visible}.slide{height:auto;min-height:170mm;padding:0;display:block;break-after:page;overflow:visible}.slide-heading{margin-bottom:8mm}.slide-body,.material-panel{display:grid;grid-template-columns:1.6fr 1fr}.material-panel[hidden]{display:grid}.material-panel{margin-top:7mm;break-inside:avoid}.peak-slide{break-after:auto}.peak-slide .material-panel{break-before:page}.code,table,.questions li{break-inside:avoid}pre,.code.compact pre{font-size:9px}.questions p{font-size:12px}.scenario{font-size:12px}.facts{font-size:10px}.material-note{font-size:9px}.diagram{max-height:60mm}.peak-slide #material-1 .materials>.diagram{height:65mm}}
+:root {
+  color-scheme: dark;
+  --paper: #101412;
+  --ink: #e6ede7;
+  --muted: #a4b3a8;
+  --accent: #a8ec87;
+  --line: #344239;
+  --soft: #182019;
+  --mono: "IBM Plex Mono", Consolas, "SFMono-Regular", monospace;
+}
+[hidden] { display: none !important }
+body { background: var(--paper); color: var(--ink) }
+.topbar, .footer, .eyebrow, .qnum, figcaption, button, .count { font-family: var(--mono) }
+.topbar { font-size: 13px; letter-spacing: .02em }
+.topbar span:before { border-radius: 0; width: 8px; height: 8px }
+.topbar span { color: var(--accent) }
+.code { border-radius: 2px; border-color: var(--line) }
+.code figcaption { border-color: var(--line); color: var(--accent) }
+pre code, code, td:first-child { color: #c3e5b9 }
+.comment, .facts { color: #acbcac }
+.choice-row span, .material-tabs button, .nav-controls button { border-radius: 2px }
+.material-tabs button[aria-selected=true] { background: #243624; border-color: #78a46e }
+.diagram .node path, .diagram .node polygon { fill: #1d2c22; stroke: #678571 }
+.diagram .node text, .diagram .edge text { fill: #d3e5d5 }
+.diagram .edge path { stroke: #8aa992 }
+.diagram .edge polygon { fill: #8aa992; stroke: #8aa992 }
+.track { display: block; overflow: hidden }
+.slide { width: 100% }
+h2 { letter-spacing: -.03em }
+.start { display: grid; align-content: center; padding: 24px max(6vw,calc((100vw - 1080px)/2)); overflow: auto }
+.terminal { width: min(100%, 820px); padding: clamp(24px, 4.4vw, 65px); border-left: 2px solid var(--accent); background: #131a15 }
+.terminal h1 { font-size: clamp(38px, 5vw, 74px); letter-spacing: -.05em; font-weight: 600 }
+.terminal h1::after { content: ""; display: inline-block; width: .36em; height: .75em; margin-left: .19em; background: var(--accent) }
+.terminal p { margin: 22px 0 30px; color: #b8c6bb; font: 15px/1.8 var(--mono) }
+.start-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap }
+#start { background: var(--accent); border: 1px solid var(--accent); color: #142111; padding: 10px 22px; font-weight: 700 }
+#start::before { content: "> "; font-family: var(--mono) }
+#home, #warmup { background: transparent; border: 0; color: var(--muted); padding: 7px 10px }
+#home:hover, #warmup:hover { color: var(--accent); text-decoration: underline }
+.shell:has(.start:not([hidden])) { grid-template-rows: 52px minmax(0,1fr) }
+@media print {
+ .start, .topbar, .footer { display: none !important }
+ .shell { display: block }
+ .track { overflow: visible }
+}
 </style></head><body><div class="shell">
-<header class="topbar"><span>技术面试</span><button type="button" id="fullscreen" class="fullscreen" aria-label="全屏" aria-pressed="false" title="全屏 · F">⛶</button></header>
-<h1 class="sr-only">技术面试题</h1>
-<main class="track" tabindex="0" aria-roledescription="轮播" aria-label="面试题"><section class="slide " role="group" aria-roledescription="幻灯片" aria-label="第 1 题，共 7 题" data-title="用 TypeScript 和 Java 读同一条报名规则">
+<header class="topbar"><span>interview / terminal</span><button type="button" id="fullscreen" class="fullscreen" aria-label="全屏" aria-pressed="false" title="全屏 · F">⛶</button></header>
+<main class="start"><div class="terminal"><h1>技术面试</h1><p>第一类 02–05 抽 1 题<br>第二类 06–07 抽 1 题</p><div class="start-actions"><button id="start" type="button">开始抽题</button><button id="warmup" type="button">热身题 01</button></div></div></main>
+<main class="track" tabindex="-1" aria-label="面试题" hidden><section class="slide " role="group" aria-roledescription="幻灯片" aria-label="第 1 题，共 7 题" data-title="用 TypeScript 和 Java 读同一条报名规则">
     <header class="slide-heading"><p class="eyebrow">第一类 · 01</p><h2>用 TypeScript 和 Java 读同一条报名规则</h2></header>
     <div class="slide-body"><div class="materials"><p class="scenario">管理员执行 <code>approve</code>；输入为甲 <code>pending</code>、乙 <code>approved</code>、丙 <code>rejected</code>。筛选不修改数据库。</p><div class="stack"><figure class="code "><figcaption>A / TypeScript</figcaption><pre><code>type Row = { status: string }
 type SelectionAction = &#x27;approve&#x27; | &#x27;checkin&#x27; | &#x27;uncheckin&#x27; | &#x27;remove&#x27; | &#x27;backfill&#x27;
@@ -634,53 +679,118 @@ load(key, req):
 </g>
 </svg>
 </figure><p class="material-note">身份已验证且已授权；单 Redis 主节点。计数与过期原子；encodeTuple 无歧义；compareAndDelete 原子验主；I/O 有总截止；DB 闸门有限等待；未获租约最多等缓存 300ms，不绕过查库。写操作仍受事务与幂等保护。</p></aside></div></section></main>
-<footer class="footer"><nav class="markers" aria-label="选择题目"><button type="button" aria-label="第 1 题：用 TypeScript 和 Java 读同一条报名规则">01</button><button type="button" aria-label="第 2 题：同一条微信消息，有无 Agent 时怎样返回">02</button><button type="button" aria-label="第 3 题：输入「报名 A1」后">03</button><button type="button" aria-label="第 4 题：后台任务如何调用检索算法">04</button><button type="button" aria-label="第 5 题：用户隔离架构与四类隔离">05</button><button type="button" aria-label="第 6 题：积分商城的实时竞价与 Agent">06</button><button type="button" aria-label="第 7 题：高峰访问失败，怎样保护服务器而不误伤学生？">07</button></nav><div class="nav-controls"><span class="count">01 / 07</span><button type="button" id="previous" aria-label="上一题" title="上一题 · ←">←</button><button type="button" id="next" aria-label="下一题" title="下一题 · →">→</button></div></footer>
+<footer class="footer" hidden><button type="button" id="home">← 返回首页</button><div class="nav-controls"><span class="count">01 / 07</span><button type="button" id="previous" aria-label="上一题" title="上一题 · ←">←</button><button type="button" id="next" aria-label="下一题" title="下一题 · →">→</button></div></footer>
 <p class="sr-only" role="status" id="status" aria-live="polite"></p></div><script type="module">
-const track=document.querySelector('.track');
-const slides=[...document.querySelectorAll('.slide')];
-const markers=[...document.querySelectorAll('.markers button')];
-const previous=document.querySelector('#previous'),next=document.querySelector('#next');
-const count=document.querySelector('.count'),status=document.querySelector('#status');
-let settled=0,pending=null,raf=0,debounce;
-const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-const nearest=()=>slides.reduce((best,s,i)=>Math.abs(s.offsetLeft-track.scrollLeft)<Math.abs(slides[best].offsetLeft-track.scrollLeft)?i:best,0);
-function mark(i){markers.forEach((m,j)=>j===i?m.setAttribute('aria-current','true'):m.removeAttribute('aria-current'));}
-function sync(announce=true){const i=nearest();if(pending!==null&&Math.abs(slides[pending].offsetLeft-track.scrollLeft)>3)return;
- pending=null;mark(i);previous.disabled=i===0;next.disabled=i===slides.length-1;
- if(document.activeElement===previous&&previous.disabled)next.focus();
- if(document.activeElement===next&&next.disabled)previous.focus();
- count.textContent=String(i+1).padStart(2,'0')+' / 07';document.title=slides[i].dataset.title+' · 技术面试';
- history.replaceState(null,'','#/'+(i+1));
- if(announce&&i!==settled)status.textContent='第 '+(i+1)+' 题，共 7 题。'+slides[i].dataset.title;
- settled=i;
+const home = document.querySelector('.start');
+const track = document.querySelector('.track');
+const footer = document.querySelector('.footer');
+const bank = Array.from(track.children);
+const firstPool = [2, 3, 4, 5];
+const secondPool = [6, 7];
+const previous = document.querySelector('#previous');
+const next = document.querySelector('#next');
+const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+let sequence = [];
+let current = 0;
+
+function pick(pool) {
+  return pool[Math.floor(Math.random() * pool.length)];
 }
-function go(i,instant=false){i=Math.max(0,Math.min(slides.length-1,i));pending=i;mark(i);
- track.scrollTo({left:slides[i].offsetLeft,behavior:'instant'});
- if(instant||Math.abs(track.scrollLeft-slides[i].offsetLeft)<2)sync();
+
+function showTab(index, focus = false) {
+  tabs.forEach((tab, i) => {
+    const selected = i === index;
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+    document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+  });
+  if (focus) tabs[index].focus();
 }
-previous.addEventListener('click',()=>go((pending??nearest())-1));
-next.addEventListener('click',()=>go((pending??nearest())+1));
-markers.forEach((m,i)=>m.addEventListener('click',()=>go(i)));
-track.addEventListener('scroll',()=>{if(!raf&&pending===null)raf=requestAnimationFrame(()=>{mark(nearest());raf=0});
- if(!('onscrollend' in track)){clearTimeout(debounce);debounce=setTimeout(sync,140)}
-},{passive:true});
-if('onscrollend' in track)track.addEventListener('scrollend',()=>sync());
-document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest('button,a,input,textarea,select,[contenteditable]'))return;
- const i=pending??nearest();
- if(['ArrowRight','PageDown',' ','ArrowLeft','PageUp','Home','End'].includes(e.key)){
-  e.preventDefault();go(e.key==='Home'?0:e.key==='End'?6:['ArrowLeft','PageUp'].includes(e.key)?i-1:i+1);
- }else if(e.key.toLowerCase()==='f'){e.preventDefault();toggleFullscreen()}
+
+function showPage(index, focus = true) {
+  current = index;
+  const question = sequence[current];
+  bank.forEach((slide, i) => {
+    slide.hidden = i + 1 !== question;
+  });
+  const slide = bank[question - 1];
+  const label = question === 1 ? '热身题' : '第 ' + (current + 1) + ' 题，共 2 题';
+  slide.setAttribute('aria-label', label);
+  slide.scrollTop = 0;
+  previous.disabled = current === 0;
+  next.disabled = current === sequence.length - 1;
+  document.querySelector('.nav-controls').hidden = sequence.length === 1;
+  document.querySelector('.count').textContent = (current + 1) + ' / ' + sequence.length;
+  document.title = slide.dataset.title + ' · 技术面试';
+  document.querySelector('#status').textContent = label + '。' + slide.dataset.title;
+  if (focus) track.focus({preventScroll:true});
+}
+
+function render() {
+  const round = /^#\/round\/([2-5])-([67])\/([12])$/.exec(location.hash);
+  const warmup = location.hash === '#/warmup';
+  const active = Boolean(round || warmup);
+  home.hidden = active;
+  track.hidden = footer.hidden = !active;
+  if (!active) {
+    sequence = [];
+    document.title = '技术面试 · 开始抽题';
+    document.querySelector('#start').focus({preventScroll:true});
+    return;
+  }
+  const pair = round ? [Number(round[1]), Number(round[2])] : [1];
+  if (pair.join() !== sequence.join()) showTab(0);
+  sequence = pair;
+  showPage(round ? Number(round[3]) - 1 : 0);
+}
+
+function move(index) {
+  if (index < 0 || index >= sequence.length || current === index) return;
+  history.replaceState(null, '', '#/round/' + sequence.join('-') + '/' + (index + 1));
+  showPage(index);
+}
+
+document.querySelector('#start').onclick = () => {
+  location.hash = '/round/' + pick(firstPool) + '-' + pick(secondPool) + '/1';
+};
+document.querySelector('#warmup').onclick = () => { location.hash = '/warmup'; };
+document.querySelector('#home').onclick = () => { location.hash = '/'; };
+previous.onclick = () => move(current - 1);
+next.onclick = () => move(current + 1);
+window.addEventListener('hashchange', render);
+
+tabs.forEach((tab, i) => {
+  tab.onclick = () => showTab(i);
+  tab.onkeydown = event => {
+    const destinations = {ArrowRight:(i+1)%3, ArrowLeft:(i+2)%3, Home:0, End:2};
+    if (!(event.key in destinations)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    showTab(destinations[event.key], true);
+  };
 });
-track.addEventListener('focusin',e=>{const slide=e.target.closest('.slide');if(slide&&slides.indexOf(slide)!==nearest())go(slides.indexOf(slide),true)});
-window.addEventListener('hashchange',()=>{const n=Number(location.hash.slice(2));if(Number.isInteger(n)&&n>=1&&n<=7)go(n-1,true)});
-let resize;window.addEventListener('resize',()=>{clearTimeout(resize);resize=setTimeout(()=>go(settled,true),100)});
-const fs=document.querySelector('#fullscreen');
-async function toggleFullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}catch{}}
-if(!document.fullscreenEnabled)fs.hidden=true;
-fs.addEventListener('click',toggleFullscreen);
-document.addEventListener('fullscreenchange',()=>{fs.setAttribute('aria-label',document.fullscreenElement?'退出全屏':'全屏');fs.setAttribute('aria-pressed',String(!!document.fullscreenElement))});
-const tabs=[...document.querySelectorAll('[role=tab]')];
-function selectTab(i,focus=false){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',String(i===j));t.tabIndex=i===j?0:-1;document.querySelector('#'+t.getAttribute('aria-controls')).hidden=i!==j});if(focus)tabs[i].focus()}
-tabs.forEach((t,i)=>{t.addEventListener('click',()=>selectTab(i));t.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();e.stopPropagation();selectTab(e.key==='Home'?0:e.key==='End'?2:(i+(e.key==='ArrowRight'?1:2))%3,true)})});
-const initial=Number(location.hash.slice(2));go(Number.isInteger(initial)&&initial>=1&&initial<=7?initial-1:0,true);sync(false);
+
+const fullscreen = document.querySelector('#fullscreen');
+fullscreen.hidden = !document.fullscreenEnabled;
+fullscreen.onclick = async () => {
+  try {
+    if (document.fullscreenElement) await document.exitFullscreen();
+    else await document.documentElement.requestFullscreen();
+  } catch { document.querySelector('#status').textContent = '当前浏览器无法切换全屏'; }
+};
+document.addEventListener('fullscreenchange', () => {
+  fullscreen.setAttribute('aria-pressed', String(Boolean(document.fullscreenElement)));
+  fullscreen.setAttribute('aria-label', document.fullscreenElement ? '退出全屏' : '全屏');
+});
+document.addEventListener('keydown', event => {
+  if (event.altKey || event.metaKey || event.ctrlKey || event.defaultPrevented) return;
+  if (event.key.toLowerCase() === 'f' && !fullscreen.hidden) fullscreen.click();
+  if (!sequence.length) return;
+  if (event.key === ' ' && event.target.closest('button')) return;
+  const destinations = {ArrowLeft:current-1, ArrowRight:current+1, PageUp:current-1, PageDown:current+1, ' ':current+1, Home:0, End:sequence.length-1};
+  if (!(event.key in destinations)) return;
+  event.preventDefault();
+  move(destinations[event.key]);
+});
+render();
 </script></body></html>
