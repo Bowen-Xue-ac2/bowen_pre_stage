@@ -105,6 +105,30 @@ code, pre, .diagram svg text { font-family: var(--mono) }
 .flow-node b { display:block;margin-bottom:2px;color:var(--accent) }
 .fork { text-align:center;font:20px/1.05 monospace;color:var(--accent) }
 @media(max-width:600px){.routes,.fork{gap:6px}#retrieval-flow{font-size:16px}}
+
+.peak-views { display:flex;flex-wrap:wrap;gap:6px;align-items:center }
+.peak-views button,.map-close { background:var(--soft);border:1px solid var(--line);font-size:14px;padding:4px 10px }
+.peak-views [aria-pressed="true"] { color:var(--accent);border-color:currentColor;border-bottom-width:3px }
+.peak-views .expand-map { margin-left:auto }
+.peak-map { min-width:0 }
+.peak-map .diagram,.map-stage .diagram { max-height:none;min-height:0;height:auto;margin:0 }
+.peak-map .diagram svg { width:100%;max-width:620px;height:auto;max-height:none }
+.peak-map .diagram .edge text,.map-stage .diagram .edge text { font-size:13px }
+.branch-map { margin:0;display:grid;gap:20px;color:var(--ink);font-size:clamp(16px,1.3vw,21px);line-height:1.4 }
+.branch-row { display:grid;grid-template-columns:minmax(0,1.15fr) 30px minmax(0,1fr);align-items:center }
+.main-step,.side-step { text-align:center;padding:6px 4px;border:1px solid #829888;background:var(--soft);overflow-wrap:anywhere }
+.main-step { position:relative }
+.branch-row:not(:last-child) .main-step::after { content:'↓' / '';position:absolute;left:50%;bottom:-21px;height:20px;color:var(--accent);line-height:20px }
+.branch-arrow { text-align:center;color:var(--accent) }
+.side-step { color:#d6eacd;border-style:dashed }
+.map-dialog { background:var(--paper);color:var(--ink);border:1px solid var(--line);width:min(1040px,96vw);max-width:96vw;max-height:94dvh;padding:12px }
+.map-dialog::backdrop { background:rgb(5 10 8 / .86) }
+.map-dialog header { display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px }
+.map-stage { overflow:auto;max-height:calc(90dvh - 66px) }
+.map-stage .diagram svg { width:min(100%,810px);min-width:640px;height:auto;max-height:none }
+.map-stage .diagram { display:block;text-align:center }
+.map-stage .branch-map { font-size:clamp(18px,2vw,26px);max-width:900px;margin:auto }
+@media(max-width:650px){.branch-row{grid-template-columns:minmax(0,1.2fr) 15px minmax(0,1fr)}.peak-views button{padding:4px 7px}.peak-map .diagram{display:block;overflow-x:auto}.peak-map .diagram svg{min-width:535px}}
 </style></head><body><div class="shell">
 
 <main class="start"><div class="terminal"><h1>技术面试</h1><p>第一类 02–05 抽 1 题<br>第二类 06–07 抽 1 题</p><div class="start-actions"><button id="start" type="button">开始抽题</button><button id="warmup" type="button">热身题 01</button></div></div></main>
@@ -333,7 +357,7 @@ code, pre, .diagram svg text { font-family: var(--mono) }
 <span class="vim-line" data-ln="3">00:00:13.356+08:00  <span class="tok-info">info</span>  healthcheck_missing_curl</span>
 <span class="vim-line" data-ln="4">00:00:45.603+08:00  <span class="tok-info">info</span>  closed_fifo</span>
 <span class="vim-line" data-ln="5">00:00:45.603+08:00  <span class="tok-info">info</span>  closed_fifo</span>
-<span class="vim-line" data-ln="6">00:00:45.605+08:00  <span class="tok-info">info</span>  healthcheck_missing_curl</span></code></pre><figcaption><span class="vim-mode" aria-hidden="true">NORMAL</span><span>D · 容器</span><span class="vim-ft" aria-hidden="true">log · 6L</span></figcaption></figure></div><table><thead><tr><th scope="col">统计项</th><th scope="col">同批记录汇总</th></tr></thead><tbody><tr><td>AuthHandler :83 / :89 / :101</td><td>4,265 / 3,778 / 487</td></tr><tr><td>09:21–09:22 的 :89 / ChatService:542</td><td>1,271 / 337</td></tr><tr><td>应用总行数 / missing_curl</td><td>192,129 / 2,679（全天）</td></tr><tr><td>网关完成日志 / 分钟峰值 / 秒峰值</td><td>23,350 / 1,902 / 60</td></tr></tbody></table></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>依据 A–D 各写一个发现，共四个。用对应证据说明判断的边界。</p></li></ol><div class="facts"><h3>历史 caller 索引 H</h3><p><code>AuthHandler:83 / :89 / :101</code><br>登录入口 / Login 错误 / 成功分支</p><p><code>ChatService:542</code><br>QA Code ≠ 200，返回默认回复</p><p><code>ChatMain:146 / :155 / :43 / :135</code><br>退出后开始关闭 / 关闭完成 / 初始化 / 启动 gRPC</p><p><code>closed_fifo</code>：管道端点关闭<br><code>healthcheck_missing_curl</code>：探针缺 curl</p></div><p class="material-note">D0 为脱敏故障日。应用时区未标记，与容器 +08:00 对齐仅为假设；错误正文已移除。H 尚未证明是 D0 部署版本。</p></aside></div><div id="material-1" class="material-panel" role="tabpanel" aria-labelledby="tab-1" hidden><div class="materials"><figure class="diagram"><svg
+<span class="vim-line" data-ln="6">00:00:45.605+08:00  <span class="tok-info">info</span>  healthcheck_missing_curl</span></code></pre><figcaption><span class="vim-mode" aria-hidden="true">NORMAL</span><span>D · 容器</span><span class="vim-ft" aria-hidden="true">log · 6L</span></figcaption></figure></div><table><thead><tr><th scope="col">统计项</th><th scope="col">同批记录汇总</th></tr></thead><tbody><tr><td>AuthHandler :83 / :89 / :101</td><td>4,265 / 3,778 / 487</td></tr><tr><td>09:21–09:22 的 :89 / ChatService:542</td><td>1,271 / 337</td></tr><tr><td>应用总行数 / missing_curl</td><td>192,129 / 2,679（全天）</td></tr><tr><td>网关完成日志 / 分钟峰值 / 秒峰值</td><td>23,350 / 1,902 / 60</td></tr></tbody></table></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>依据 A–D 各写一个发现，共四个。用对应证据说明判断的边界。</p></li></ol><div class="facts"><h3>历史 caller 索引 H</h3><p><code>AuthHandler:83 / :89 / :101</code><br>登录入口 / Login 错误 / 成功分支</p><p><code>ChatService:542</code><br>QA Code ≠ 200，返回默认回复</p><p><code>ChatMain:146 / :155 / :43 / :135</code><br>退出后开始关闭 / 关闭完成 / 初始化 / 启动 gRPC</p><p><code>closed_fifo</code>：管道端点关闭<br><code>healthcheck_missing_curl</code>：探针缺 curl</p></div><p class="material-note">D0 为脱敏故障日。应用时区未标记，与容器 +08:00 对齐仅为假设；错误正文已移除。H 尚未证明是 D0 部署版本。</p></aside></div><div id="material-1" class="material-panel" role="tabpanel" aria-labelledby="tab-1" hidden><div class="materials"><div class="peak-views" role="group" aria-label="系统架构材料"><button type="button" data-layer="system-map" aria-controls="system-map" aria-pressed="true">系统架构</button><button type="button" data-layer="system-detail" aria-controls="system-detail" aria-pressed="false">请求事件</button><button type="button" class="expand-map" data-map="system-map" aria-haspopup="dialog" aria-label="放大系统架构">放大图 ↗</button></div><div class="peak-map" id="system-map"><figure class="diagram"><svg
  viewBox="0.00 0.00 465.78 369.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="校园系统现有调用结构">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(8.64 360.64)">
 <title>G</title>
@@ -478,7 +502,7 @@ code, pre, .diagram svg text { font-family: var(--mono) }
 </g>
 </g>
 </svg>
-</figure><div class="events-grid"><table><caption>事件甲 · 固定 [0,10s) 每人最多 3 次</caption><thead><tr><th scope="col">t / 秒</th><th scope="col">事件</th><th scope="col">在途</th></tr></thead><tbody><tr><td>0–.05</td><td>R1 准入、完成</td><td>0</td></tr><tr><td>1–1.05</td><td>R2 准入、完成</td><td>0</td></tr><tr><td>2–2.05</td><td>R3 准入、完成</td><td>0</td></tr><tr><td>3</td><td>R4 → 429，未查日历</td><td>0</td></tr></tbody></table><table><caption>事件乙 · 实例 A 最多 2 个模型工作；每人 10 次/分</caption><thead><tr><th scope="col">t / 秒</th><th scope="col">事件</th><th scope="col">模型工作</th></tr></thead><tbody><tr><td>0</td><td>R1 准入、开始</td><td>1</td></tr><tr><td>1</td><td>R2 准入、开始</td><td>2</td></tr><tr><td>2</td><td>R3 第 3 次准入；无名额 → 503</td><td>2</td></tr><tr><td>8</td><td>R1 完成</td><td>1</td></tr><tr><td>9</td><td>R4 准入、开始</td><td>2</td></tr></tbody></table></div></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>依据事件甲、乙，解释限流控制与并发闸门分别约束什么。</p></li></ol><div class="facts"><h3>已核对材料</h3><p><strong>S0 资源快照</strong><br>宿主机 8 逻辑 CPU / 15.1GiB<br>PostgreSQL 0.5 核 / 1GiB<br>Redis 0.25 核 / 512MiB<br>etcd 0.25 核 / 256MiB</p><p><strong>当前代码 C</strong><br>网关每次查服务地址，取首地址 Dial / Close；阻塞 Dial 后才建立 RPC 超时。</p><p>Agent 写池 10，取连接最多等 5 秒；withScope 可能在模型等待期间持有连接与会话锁。</p><p><strong>事件乙</strong>先检查个人速率，再申请执行名额；名额满立即拒绝，不排队。</p></div><p class="material-note">S0 不等于 D0 负载。Agent 是否部署、实际副本数待核对；两组事件均为教学构造。</p></aside></div><div id="material-2" class="material-panel" role="tabpanel" aria-labelledby="tab-2" hidden><div class="materials"><figure class="code compact vim"><pre><code><span class="vim-line" data-ln="1">handle(req):</span>
+</figure></div><div class="peak-detail" id="system-detail" hidden><div class="events-grid"><table><caption>事件甲 · 固定 [0,10s) 每人最多 3 次</caption><thead><tr><th scope="col">t / 秒</th><th scope="col">事件</th><th scope="col">在途</th></tr></thead><tbody><tr><td>0–.05</td><td>R1 准入、完成</td><td>0</td></tr><tr><td>1–1.05</td><td>R2 准入、完成</td><td>0</td></tr><tr><td>2–2.05</td><td>R3 准入、完成</td><td>0</td></tr><tr><td>3</td><td>R4 → 429，未查日历</td><td>0</td></tr></tbody></table><table><caption>事件乙 · 实例 A 最多 2 个模型工作；每人 10 次/分</caption><thead><tr><th scope="col">t / 秒</th><th scope="col">事件</th><th scope="col">模型工作</th></tr></thead><tbody><tr><td>0</td><td>R1 准入、开始</td><td>1</td></tr><tr><td>1</td><td>R2 准入、开始</td><td>2</td></tr><tr><td>2</td><td>R3 第 3 次准入；无名额 → 503</td><td>2</td></tr><tr><td>8</td><td>R1 完成</td><td>1</td></tr><tr><td>9</td><td>R4 准入、开始</td><td>2</td></tr></tbody></table></div></div></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>依据事件甲、乙，解释限流控制与并发闸门分别约束什么。</p></li></ol><div class="facts"><h3>已核对材料</h3><p><strong>S0 资源快照</strong><br>宿主机 8 逻辑 CPU / 15.1GiB<br>PostgreSQL 0.5 核 / 1GiB<br>Redis 0.25 核 / 512MiB<br>etcd 0.25 核 / 256MiB</p><p><strong>当前代码 C</strong><br>网关每次查服务地址，取首地址 Dial / Close；阻塞 Dial 后才建立 RPC 超时。</p><p>Agent 写池 10，取连接最多等 5 秒；withScope 可能在模型等待期间持有连接与会话锁。</p><p><strong>事件乙</strong>先检查个人速率，再申请执行名额；名额满立即拒绝，不排队。</p></div><p class="material-note">S0 不等于 D0 负载。Agent 是否部署、实际副本数待核对；两组事件均为教学构造。</p></aside></div><div id="material-2" class="material-panel" role="tabpanel" aria-labelledby="tab-2" hidden><div class="materials"><div class="peak-views" role="group" aria-label="待审架构材料"><button type="button" data-layer="cache-map" aria-controls="cache-map" aria-pressed="true">待审架构</button><button type="button" data-layer="cache-detail" aria-controls="cache-detail" aria-pressed="false">待审伪代码</button><button type="button" class="expand-map" data-map="cache-map" aria-haspopup="dialog" aria-label="放大待审架构">放大图 ↗</button></div><div class="peak-map" id="cache-map"><figure class="branch-map" aria-label="待审缓存流程"><div class="branch-row"><div class="main-step">已认证且已授权的请求</div></div><div class="branch-row"><div class="main-step">实例 A / B 构造额度 key<br>Redis 原子计数</div><span class="branch-arrow" aria-hidden="true">→</span><div class="side-step">超额 → 返回 429</div></div><div class="branch-row"><div class="main-step">准入 → 实例内 singleflight<br>读取 Redis 缓存</div><span class="branch-arrow" aria-hidden="true">→</span><div class="side-step">命中 → 返回缓存</div></div><div class="branch-row"><div class="main-step">未命中 → 竞争回源租约</div><span class="branch-arrow" aria-hidden="true">→</span><div class="side-step">未取得 → 有限等待缓存<br>等待超时 → 返回繁忙</div></div><div class="branch-row"><div class="main-step">取得租约 → 本地回源闸门<br>读取 PostgreSQL</div></div><div class="branch-row"><div class="main-step">发布缓存 → 释放租约 → 返回</div></div></figure></div><div class="peak-detail" id="cache-detail" hidden><figure class="code compact vim"><pre><code><span class="vim-line" data-ln="1">handle(req):</span>
 <span class="vim-line" data-ln="2">    tenant = req.verifiedTenantId</span>
 <span class="vim-line" data-ln="3">    user   = req.verifiedUserId</span>
 <span class="vim-line" data-ln="4">    route  = req.canonicalRoute</span>
@@ -504,153 +528,34 @@ code, pre, .diagram svg text { font-family: var(--mono) }
 <span class="vim-line" data-ln="24">        redis.SET(key, value, EX=<span class="tok-number">60</span>)</span>
 <span class="vim-line" data-ln="25">        <span class="tok-keyword">return</span> value</span>
 <span class="vim-line" data-ln="26">    <span class="tok-keyword">finally</span>:</span>
-<span class="vim-line" data-ln="27">        compareAndDelete(lockKey, token)</span></code></pre><figcaption><span class="vim-mode" aria-hidden="true">NORMAL</span><span>待审伪代码 · 有意含错</span><span class="vim-ft" aria-hidden="true">pseudo · 27L</span></figcaption></figure></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>逐步演算两组输入，提交修订后的架构与关键伪代码：不同身份额度独立；同一身份跨实例共享；旧任务不能覆盖新缓存。</p></li></ol><div class="facts"><p><strong>身份组</strong>：甲 <code>tenant="12", user="34"</code>；乙 <code>tenant="1", user="234"</code>。同为 /calendar，甲本窗口已用 10 次，乙首次落另一实例。</p><p><strong>时序组</strong>：t=0，A 获 3 秒租约、读 v7 后暂停；3.1 租约过期、数据库 v8；3.2 B 获新租约、发布 v8 并释放；4 A 恢复 SET / finally。请求均未超过总截止时间。</p></div><figure class="diagram"><svg
- viewBox="0.00 0.00 779.78 219.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="待审缓存与共享限流架构">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(8.64 210.64)">
-<title>G</title>
-
-<g id="node1" class="node">
-<title>q</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M292,-202C292,-202 165,-202 165,-202 159,-202 153,-196 153,-190 153,-190 153,-178 153,-178 153,-172 159,-166 165,-166 165,-166 292,-166 292,-166 298,-166 304,-172 304,-178 304,-178 304,-190 304,-190 304,-196 298,-202 292,-202"/>
-<text text-anchor="middle" x="228.5" y="-180.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">已认证、已授权请求</text>
-</g>
-
-<g id="node2" class="node">
-<title>l</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M479.5,-202C479.5,-202 349.5,-202 349.5,-202 343.5,-202 337.5,-196 337.5,-190 337.5,-190 337.5,-178 337.5,-178 337.5,-172 343.5,-166 349.5,-166 349.5,-166 479.5,-166 479.5,-166 485.5,-166 491.5,-172 491.5,-178 491.5,-178 491.5,-190 491.5,-190 491.5,-196 485.5,-202 479.5,-202"/>
-<text text-anchor="middle" x="414.5" y="-180.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">A / B · 构造额度 key</text>
-</g>
-
-<g id="edge1" class="edge">
-<title>q&#45;&gt;l</title>
-<path fill="none" stroke="#6a8a7e" d="M304.06,-184C312.89,-184 321.71,-184 330.53,-184"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="330.78,-186.28 337.28,-184 330.78,-181.73 330.78,-186.28"/>
-</g>
-
-<g id="node3" class="node">
-<title>r</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M632,-202C632,-202 537,-202 537,-202 531,-202 525,-196 525,-190 525,-190 525,-178 525,-178 525,-172 531,-166 537,-166 537,-166 632,-166 632,-166 638,-166 644,-172 644,-178 644,-178 644,-190 644,-190 644,-196 638,-202 632,-202"/>
-<text text-anchor="middle" x="584.5" y="-180.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">Redis 原子计数</text>
-</g>
-
-<g id="edge2" class="edge">
-<title>l&#45;&gt;r</title>
-<path fill="none" stroke="#6a8a7e" d="M491.53,-184C500.49,-184 509.45,-184 518.42,-184"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="518.44,-186.28 524.94,-184 518.44,-181.73 518.44,-186.28"/>
-</g>
-
-<g id="node4" class="node">
-<title>sf</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M235.5,-119C235.5,-119 119.5,-119 119.5,-119 113.5,-119 107.5,-113 107.5,-107 107.5,-107 107.5,-95 107.5,-95 107.5,-89 113.5,-83 119.5,-83 119.5,-83 235.5,-83 235.5,-83 241.5,-83 247.5,-89 247.5,-95 247.5,-95 247.5,-107 247.5,-107 247.5,-113 241.5,-119 235.5,-119"/>
-<text text-anchor="middle" x="177.5" y="-97.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">实例内 singleflight</text>
-</g>
-
-<g id="edge3" class="edge">
-<title>r&#45;&gt;sf</title>
-<path fill="none" stroke="#6a8a7e" d="M524.65,-170.72C516.22,-169.08 507.65,-167.46 499.5,-166 398.95,-147.98 372.14,-152.49 272.5,-130 261.04,-127.41 248.92,-124.21 237.32,-120.91"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="237.82,-118.68 230.94,-119.07 236.55,-123.05 237.82,-118.68"/>
-<text text-anchor="middle" x="433" y="-145.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">允许</text>
-</g>
-
-<g id="node11" class="node">
-<title>x</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M750.5,-119C750.5,-119 720.5,-119 720.5,-119 714.5,-119 708.5,-113 708.5,-107 708.5,-107 708.5,-95 708.5,-95 708.5,-89 714.5,-83 720.5,-83 720.5,-83 750.5,-83 750.5,-83 756.5,-83 762.5,-89 762.5,-95 762.5,-95 762.5,-107 762.5,-107 762.5,-113 756.5,-119 750.5,-119"/>
-<text text-anchor="middle" x="735.5" y="-97.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">429</text>
-</g>
-
-<g id="edge4" class="edge">
-<title>r&#45;&gt;x</title>
-<path fill="none" stroke="#6a8a7e" d="M627.48,-165.98C649.62,-156.52 676.68,-143.88 699.5,-130 702.96,-127.89 706.48,-125.51 709.89,-123.05"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="711.29,-124.84 715.14,-119.13 708.57,-121.19 711.29,-124.84"/>
-<text text-anchor="middle" x="687" y="-145.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">拒绝</text>
-</g>
-
-<g id="node5" class="node">
-<title>c</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M364.03,-126.46C364.03,-126.46 292.97,-104.54 292.97,-104.54 287.23,-102.77 287.23,-99.23 292.97,-97.46 292.97,-97.46 364.03,-75.54 364.03,-75.54 369.77,-73.77 381.23,-73.77 386.97,-75.54 386.97,-75.54 458.03,-97.46 458.03,-97.46 463.77,-99.23 463.77,-102.77 458.03,-104.54 458.03,-104.54 386.97,-126.46 386.97,-126.46 381.23,-128.23 369.77,-128.23 364.03,-126.46"/>
-<text text-anchor="middle" x="375.5" y="-97.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">缓存命中？</text>
-</g>
-
-<g id="edge5" class="edge">
-<title>sf&#45;&gt;c</title>
-<path fill="none" stroke="#6a8a7e" d="M247.88,-101C256.84,-101 265.8,-101 274.76,-101"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="274.78,-103.28 281.28,-101 274.78,-98.73 274.78,-103.28"/>
-</g>
-
-<g id="node6" class="node">
-<title>lock</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M586.03,-126.46C586.03,-126.46 514.97,-104.54 514.97,-104.54 509.23,-102.77 509.23,-99.23 514.97,-97.46 514.97,-97.46 586.03,-75.54 586.03,-75.54 591.77,-73.77 603.23,-73.77 608.97,-75.54 608.97,-75.54 680.03,-97.46 680.03,-97.46 685.77,-99.23 685.77,-102.77 680.03,-104.54 680.03,-104.54 608.97,-126.46 608.97,-126.46 603.23,-128.23 591.77,-128.23 586.03,-126.46"/>
-<text text-anchor="middle" x="597.5" y="-97.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">取得租约？</text>
-</g>
-
-<g id="edge7" class="edge">
-<title>c&#45;&gt;lock</title>
-<path fill="none" stroke="#6a8a7e" d="M469.65,-101C478.59,-101 487.68,-101 496.67,-101"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="496.71,-103.28 503.21,-101 496.71,-98.73 496.71,-103.28"/>
-<text text-anchor="middle" x="486.5" y="-107.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">否</text>
-</g>
-
-<g id="node10" class="node">
-<title>out</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M435.5,-36C435.5,-36 405.5,-36 405.5,-36 399.5,-36 393.5,-30 393.5,-24 393.5,-24 393.5,-12 393.5,-12 393.5,-6 399.5,0 405.5,0 405.5,0 435.5,0 435.5,0 441.5,0 447.5,-6 447.5,-12 447.5,-12 447.5,-24 447.5,-24 447.5,-30 441.5,-36 435.5,-36"/>
-<text text-anchor="middle" x="420.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">返回</text>
-</g>
-
-<g id="edge6" class="edge">
-<title>c&#45;&gt;out</title>
-<path fill="none" stroke="#6a8a7e" d="M389,-75.7C394.89,-65.1 401.76,-52.74 407.58,-42.26"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="409.7,-43.13 410.87,-36.34 405.72,-40.92 409.7,-43.13"/>
-<text text-anchor="middle" x="409.5" y="-51.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">是</text>
-</g>
-
-<g id="node7" class="node">
-<title>db</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M163,-36C163,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 163,0 163,0 169,0 175,-6 175,-12 175,-12 175,-24 175,-24 175,-30 169,-36 163,-36"/>
-<text text-anchor="middle" x="87.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">本地闸门 → PostgreSQL</text>
-</g>
-
-<g id="edge8" class="edge">
-<title>lock&#45;&gt;db</title>
-<path fill="none" stroke="#6a8a7e" d="M555.7,-84.83C520.03,-72.6 467.1,-56.15 419.5,-48 323.42,-31.56 297.47,-45.93 200.5,-36 194.49,-35.38 188.3,-34.67 182.07,-33.9"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="182.04,-31.6 175.3,-33.04 181.46,-36.12 182.04,-31.6"/>
-<text text-anchor="middle" x="475.5" y="-51.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">是</text>
-</g>
-
-<g id="node8" class="node">
-<title>wait</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M673.5,-36C673.5,-36 521.5,-36 521.5,-36 515.5,-36 509.5,-30 509.5,-24 509.5,-24 509.5,-12 509.5,-12 509.5,-6 515.5,0 521.5,0 521.5,0 673.5,0 673.5,0 679.5,0 685.5,-6 685.5,-12 685.5,-12 685.5,-24 685.5,-24 685.5,-30 679.5,-36 673.5,-36"/>
-<text text-anchor="middle" x="597.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">有限等待缓存 / 返回繁忙</text>
-</g>
-
-<g id="edge9" class="edge">
-<title>lock&#45;&gt;wait</title>
-<path fill="none" stroke="#6a8a7e" d="M597.5,-71.67C597.5,-62.22 597.5,-51.79 597.5,-42.73"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="599.78,-42.6 597.5,-36.1 595.23,-42.6 599.78,-42.6"/>
-<text text-anchor="middle" x="603.5" y="-51.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">否</text>
-</g>
-
-<g id="node9" class="node">
-<title>pub</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M348,-36C348,-36 221,-36 221,-36 215,-36 209,-30 209,-24 209,-24 209,-12 209,-12 209,-6 215,0 221,0 221,0 348,0 348,0 354,0 360,-6 360,-12 360,-12 360,-24 360,-24 360,-30 354,-36 348,-36"/>
-<text text-anchor="middle" x="284.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">发布缓存、释放租约</text>
-</g>
-
-<g id="edge10" class="edge">
-<title>db&#45;&gt;pub</title>
-<path fill="none" stroke="#6a8a7e" d="M175.23,-18C184.27,-18 193.32,-18 202.36,-18"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="202.45,-20.28 208.95,-18 202.45,-15.73 202.45,-20.28"/>
-</g>
-
-<g id="edge11" class="edge">
-<title>pub&#45;&gt;out</title>
-<path fill="none" stroke="#6a8a7e" d="M360.2,-18C368.96,-18 377.72,-18 386.48,-18"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="386.68,-20.28 393.18,-18 386.68,-15.73 386.68,-20.28"/>
-</g>
-</g>
-</svg>
-</figure><p class="material-note">身份已验证且已授权；单 Redis 主节点。计数与过期原子；encodeTuple 无歧义；compareAndDelete 原子验主；I/O 有总截止；DB 闸门有限等待；未获租约最多等缓存 300ms，不绕过查库。写操作仍受事务与幂等保护。</p></aside></div></section></main>
+<span class="vim-line" data-ln="27">        compareAndDelete(lockKey, token)</span></code></pre><figcaption><span class="vim-mode" aria-hidden="true">NORMAL</span><span>待审伪代码 · 有意含错</span><span class="vim-ft" aria-hidden="true">pseudo · 27L</span></figcaption></figure></div></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>逐步演算两组输入，提交修订后的架构与关键伪代码：不同身份额度独立；同一身份跨实例共享；旧任务不能覆盖新缓存。</p></li></ol><div class="facts"><p><strong>身份组</strong>：甲 <code>tenant="12", user="34"</code>；乙 <code>tenant="1", user="234"</code>。同为 /calendar，甲本窗口已用 10 次，乙首次落另一实例。</p><p><strong>时序组</strong>：t=0，A 获 3 秒租约、读 v7 后暂停；3.1 租约过期、数据库 v8；3.2 B 获新租约、发布 v8 并释放；4 A 恢复 SET / finally。请求均未超过总截止时间。</p></div><p class="material-note">身份已验证且已授权；单 Redis 主节点。计数与过期原子；encodeTuple 无歧义；compareAndDelete 原子验主；I/O 有总截止；DB 闸门有限等待；未获租约最多等缓存 300ms，不绕过查库。写操作仍受事务与幂等保护。</p></aside></div></section></main>
 <footer class="footer" hidden><button type="button" id="home">← 返回首页</button><div class="footer-tools"><button type="button" id="fullscreen" class="fullscreen" aria-label="全屏" aria-pressed="false" title="全屏 · F">⛶</button><div class="nav-controls"><span class="count">01 / 07</span><button type="button" id="previous" aria-label="上一题" title="上一题 · ←">←</button><button type="button" id="next" aria-label="下一题" title="下一题 · →">→</button></div></div></footer>
-<p class="sr-only" role="status" id="status" aria-live="polite"></p></div><script type="module">
+<p class="sr-only" role="status" id="status" aria-live="polite"></p></div><dialog class="map-dialog" aria-labelledby="map-title"><header><h2 id="map-title"></h2><button type="button" class="map-close" autofocus>关闭</button></header><div class="map-stage"></div></dialog><script type="module">
+const mapDialog = document.querySelector('.map-dialog');
+const mapStage = mapDialog.querySelector('.map-stage');
+for (const bar of document.querySelectorAll('.peak-views')) {
+  const options = bar.querySelectorAll('[data-layer]');
+  for (const option of options) {
+    option.onclick = () => {
+      for (const item of options) {
+        const chosen = item === option;
+        item.setAttribute('aria-pressed', String(chosen));
+        document.getElementById(item.dataset.layer).hidden = !chosen;
+      }
+    };
+  }
+  const expand = bar.querySelector('.expand-map');
+  expand.onclick = () => {
+    const graph = document.getElementById(expand.dataset.map).firstElementChild.cloneNode(true);
+    graph.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));
+    mapStage.replaceChildren(graph);
+    document.querySelector('#map-title').textContent = options[0].textContent;
+    mapDialog.showModal();
+  };
+}
+mapDialog.querySelector('.map-close').onclick = () => mapDialog.close();
+mapDialog.addEventListener('close', () => mapStage.replaceChildren());
+
 const viewButtons = Array.from(document.querySelectorAll('.read-views button'));
 for (const button of viewButtons) {
   button.addEventListener('click', () => {
@@ -763,7 +668,7 @@ document.addEventListener('fullscreenchange', () => {
   fullscreen.setAttribute('aria-label', document.fullscreenElement ? '退出全屏' : '全屏');
 });
 document.addEventListener('keydown', event => {
-  if (event.altKey || event.metaKey || event.ctrlKey || event.defaultPrevented) return;
+  if (mapDialog.open || event.altKey || event.metaKey || event.ctrlKey || event.defaultPrevented) return;
   if (event.key.toLowerCase() === 'f' && !fullscreen.hidden) fullscreen.click();
   if (!sequence.length) return;
   if (event.key === ' ' && event.target.closest('button')) return;
