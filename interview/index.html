@@ -85,6 +85,15 @@ code, pre, .diagram svg text { font-family: var(--mono) }
 .auction-example strong {color:var(--accent)}
 .auction-facts {padding-top:10px; gap:7px; font-size:13px; line-height:1.55}
 @media(min-width:951px) and (max-height:900px){.slide:has(.auction-facts) .materials{gap:8px}.slide:has(.auction-facts) td,.slide:has(.auction-facts) th{padding-block:4px}}
+@media(min-width:951px) and (max-height:740px){
+.slide:has(.auction-facts){gap:10px;padding-block:12px}
+.slide:has(.auction-facts) .slide-body{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+.slide:has(.auction-facts) .questions{gap:9px}
+.slide:has(.auction-facts) .questions p{line-height:1.45}
+.slide:has(.auction-facts) .ask{gap:10px}
+.slide:has(.auction-facts) .materials{gap:6px}
+.slide:has(.auction-facts) td,.slide:has(.auction-facts) th{padding-block:3px}
+}
 </style></head><body><div class="shell">
 
 <main class="start"><div class="terminal"><h1>技术面试</h1><p>第一类 02–05 抽 1 题<br>第二类 06–07 抽 1 题</p><div class="start-actions"><button id="start" type="button">开始抽题</button><button id="warmup" type="button">热身题 01</button></div></div></main>
