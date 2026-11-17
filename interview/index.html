@@ -1,0 +1,687 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="description" content="技术面试题演示"><title>技术面试</title><style>
+:root{color-scheme:light;--ink:#202c28;--muted:#62716a;--accent:#17634d;--line:#d9e2dd;--paper:#fafbf9;--soft:#f0f4f0;font-family:Inter,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;font-synthesis:none}
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden}body{background:var(--paper);color:var(--ink);font-size:16px;line-height:1.65}button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible,.track:focus-visible{outline:3px solid var(--accent);outline-offset:3px}button:disabled{opacity:.28;cursor:default}button,code{font-variant-numeric:tabular-nums}button{min-width:36px;min-height:36px}code{font-family:"SFMono-Regular",Consolas,"Noto Sans Mono CJK SC",monospace;font-size:.87em;color:#255a49}p{margin:0}strong{font-weight:650}h1,h2,h3{margin:0;line-height:1.25}h2{font-size:clamp(25px,2.6vw,43px);letter-spacing:-.055em;font-weight:650}h3{font-size:15px;font-weight:650;margin-bottom:10px}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.shell{height:100dvh;display:grid;grid-template-rows:52px minmax(0,1fr) 58px}.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 3.6vw;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.18em;color:var(--muted)}.topbar span{display:flex;align-items:center;gap:10px}.topbar span:before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%}.fullscreen{border:0;background:transparent;font-size:23px;line-height:1;letter-spacing:0}.track{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;position:relative;touch-action:pan-x pan-y}.track::-webkit-scrollbar{display:none}.slide{flex:0 0 100%;min-width:0;height:100%;scroll-snap-align:start;scroll-snap-stop:always;padding:24px 3.6vw 20px;overflow-y:auto;display:flex;flex-direction:column;gap:22px}.slide-heading{flex:none}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.14em;margin-bottom:10px;font-weight:650}.slide-body,.material-panel{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);gap:3.1vw;min-height:0;flex:1}.materials,.ask{min-width:0}.materials{display:flex;flex-direction:column;gap:14px}.ask{border-left:1px solid var(--line);padding-left:2.6vw;display:flex;flex-direction:column;gap:20px}.scenario{font-size:16px;line-height:1.7;max-width:76ch}.scenario strong{color:var(--accent)}.stack{display:grid;gap:14px;flex:1;align-content:start}.code{margin:0;background:var(--soft);border:1px solid #dfe6df;border-radius:8px;overflow:hidden;flex-shrink:0}.code figcaption{padding:9px 15px;border-bottom:1px solid #dfe6df;font-size:11px;letter-spacing:.06em;font-weight:650;color:var(--muted)}pre{padding:13px 16px;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.55;tab-size:2}pre code{font-size:inherit;color:#234437}.comment{color:#647b6e}.code.compact pre{font-size:12px;line-height:1.55;padding:11px 14px}.material-note{font-size:12px;color:var(--muted);line-height:1.7}.questions{padding:0;margin:0;list-style:none;display:flex;flex-direction:column;gap:25px}.questions li{display:grid;grid-template-columns:25px minmax(0,1fr);gap:10px}.qnum{font-size:11px;color:var(--accent);padding-top:4px;font-weight:650}.questions p{font-size:clamp(16px,1.23vw,21px);line-height:1.75;letter-spacing:-.015em}.facts{padding-top:18px;border-top:1px solid var(--line);font-size:13px;line-height:1.75;color:#52645b;display:flex;flex-direction:column;gap:11px}.facts strong{color:var(--ink)}table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}caption{text-align:left;font-size:11px;color:var(--accent);margin-bottom:8px}th{text-align:left;font-size:11px;color:var(--muted);font-weight:550}td,th{padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}th:first-child,td:first-child{padding-left:0}td:first-child{color:#355d4e}td:last-child,th:last-child{padding-right:0}.diagram{margin:0;min-height:0;display:flex;justify-content:center}.diagram svg{width:100%;max-height:100%;height:auto;display:block}.ask .diagram{max-height:320px;flex:1;min-height:150px}.code-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.four-types{display:grid;grid-template-columns:1fr 1fr;font-size:12px}.choice-row{display:flex;gap:8px;flex-wrap:wrap}.choice-row span{font-size:12px;border:1px solid #b8c9be;border-radius:4px;padding:5px 9px;color:var(--accent)}.retrieval-slide .ask{gap:15px}.retrieval-slide .questions{gap:17px}.retrieval-slide .ask .diagram{max-height:195px;min-height:120px}.retrieval-slide .facts{gap:6px;font-size:12px;padding-top:12px}.isolation-slide .questions{gap:22px}.material-tabs{display:flex;gap:8px;flex:none;margin-top:-7px}.material-tabs button{border:1px solid transparent;background:transparent;color:var(--muted);padding:5px 14px;font-size:12px;border-radius:5px}.material-tabs button[aria-selected=true]{border-color:#adc1b5;background:#e8f0e9;color:var(--accent);font-weight:650}.material-panel[hidden]{display:none}.peak-slide{gap:17px}.peak-slide h2{font-size:clamp(25px,2.4vw,40px)}.peak-slide .questions{gap:15px}.peak-slide .ask{gap:16px}.peak-slide .facts{font-size:12px;gap:12px;padding-top:15px}.logs-grid{display:grid;grid-template-columns:.9fr 1.4fr;gap:12px;align-content:start}.logs-grid .code:nth-child(3){grid-column:2;grid-row:1/3}.logs-grid .code:nth-child(4){grid-column:1/-1}.logs-grid .code pre{font-size:11.5px;white-space:pre;padding:9px 12px;overflow-x:auto}.logs-grid .code figcaption{padding:7px 12px}.peak-slide .materials>table{font-size:12px}.peak-slide .materials>table td{padding:5px 8px}.events-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:20px}.events-grid table{font-size:11.5px}.events-grid td,.events-grid th{padding:6px 5px}.peak-slide #material-1 .materials>.diagram{height:300px}.peak-slide #material-2 .materials .code pre{font-size:12px;line-height:1.43;white-space:pre-wrap}.peak-slide #material-2 .ask .diagram{max-height:225px;min-height:145px}.peak-slide #material-2 .facts{font-size:12px;gap:12px}.peak-slide #material-2 .material-note{font-size:11px}.footer{border-top:1px solid var(--line);padding:0 3.6vw;display:flex;align-items:center;justify-content:space-between;gap:16px}.markers{display:flex;gap:8px}.markers button{background:transparent;border:0;min-width:36px;min-height:36px;font-size:11px;color:var(--muted);border-bottom:2px solid transparent}.markers button[aria-current=true]{color:var(--accent);font-weight:700;border-bottom-color:var(--accent)}.nav-controls{display:flex;gap:6px;align-items:center}.nav-controls button{background:transparent;border:1px solid var(--line);border-radius:5px;width:40px;font-size:18px}.count{font-size:11px;color:var(--muted);margin-right:16px;letter-spacing:.08em}
+@media(min-height:1000px) and (min-width:1100px){.slide{padding-top:34px;gap:28px}pre{font-size:16px}.code.compact pre{font-size:14px}.scenario{font-size:18px}.questions{gap:32px}.facts{font-size:15px}table{font-size:15px}.material-note{font-size:13px}.peak-slide .facts{font-size:14px}.peak-slide .logs-grid pre{font-size:14px}.peak-slide #material-2 .materials .code pre{font-size:14px}.peak-slide #material-2 .facts{font-size:14px}.peak-slide #material-2 .material-note{font-size:12px}.peak-slide #material-2 .ask .diagram{max-height:285px}.peak-slide #material-1 .materials>.diagram{height:350px}.events-grid table{font-size:13px}.peak-slide .materials>table{font-size:14px}}
+@media(max-width:950px){.slide-body,.material-panel{grid-template-columns:1fr;gap:28px}.slide{padding:20px 5vw 30px;gap:20px}.ask{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}.materials{gap:14px}.questions p{font-size:17px}.questions{gap:22px}.ask .diagram{max-height:320px;min-height:200px}.slide-body,.material-panel{flex:none}.slide-heading h2{font-size:29px}.retrieval-slide .ask .diagram{max-height:280px;min-height:240px}.topbar,.footer{padding-left:5vw;padding-right:5vw}.peak-slide #material-1 .materials>.diagram{height:auto;max-height:360px}.peak-slide #material-2 .ask .diagram{max-height:360px}.count{margin-right:5px}.markers{gap:0}.markers button{min-width:32px}.footer{gap:4px}.nav-controls button{width:34px;min-width:34px}}
+@media(max-width:520px){.shell{grid-template-rows:45px minmax(0,1fr) 56px}.slide-heading h2{font-size:25px}.code-grid,.logs-grid,.events-grid{grid-template-columns:1fr}.logs-grid .code:nth-child(n){grid-column:auto;grid-row:auto}.code-grid .code:last-child{grid-column:auto}.logs-grid .code pre{white-space:pre-wrap;font-size:12px}.code.compact pre,pre{font-size:12px}.count{display:none}.markers button{min-width:29px}.material-tabs button{padding:6px 10px;font-size:11px}.code-grid{gap:12px}.material-note{font-size:12px}table{font-size:12px}.slide{scroll-snap-stop:always}.peak-slide .material-panel{gap:26px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media(pointer:coarse){button{min-height:44px}.markers button{min-width:32px}}
+@media print{@page{size:A4 landscape;margin:12mm}html,body{height:auto;overflow:visible}.shell{display:block;height:auto}.topbar,.footer,.material-tabs{display:none}.track{display:block;overflow:visible}.slide{height:auto;min-height:170mm;padding:0;display:block;break-after:page;overflow:visible}.slide-heading{margin-bottom:8mm}.slide-body,.material-panel{display:grid;grid-template-columns:1.6fr 1fr}.material-panel[hidden]{display:grid}.material-panel{margin-top:7mm;break-inside:avoid}.peak-slide{break-after:auto}.peak-slide .material-panel{break-before:page}.code,table,.questions li{break-inside:avoid}pre,.code.compact pre{font-size:9px}.questions p{font-size:12px}.scenario{font-size:12px}.facts{font-size:10px}.material-note{font-size:9px}.diagram{max-height:60mm}.peak-slide #material-1 .materials>.diagram{height:65mm}}
+</style></head><body><div class="shell">
+<header class="topbar"><span>技术面试</span><button type="button" id="fullscreen" class="fullscreen" aria-label="全屏" aria-pressed="false" title="全屏 · F">⛶</button></header>
+<h1 class="sr-only">技术面试题</h1>
+<main class="track" tabindex="0" aria-roledescription="轮播" aria-label="面试题"><section class="slide " role="group" aria-roledescription="幻灯片" aria-label="第 1 题，共 7 题" data-title="用 TypeScript 和 Java 读同一条报名规则">
+    <header class="slide-heading"><p class="eyebrow">第一类 · 01</p><h2>用 TypeScript 和 Java 读同一条报名规则</h2></header>
+    <div class="slide-body"><div class="materials"><p class="scenario">管理员执行 <code>approve</code>；输入为甲 <code>pending</code>、乙 <code>approved</code>、丙 <code>rejected</code>。筛选不修改数据库。</p><div class="stack"><figure class="code "><figcaption>A / TypeScript</figcaption><pre><code>type Row = { status: string }
+type SelectionAction = &#x27;approve&#x27; | &#x27;checkin&#x27; | &#x27;uncheckin&#x27; | &#x27;remove&#x27; | &#x27;backfill&#x27;
+function registrationsForAction(rows: Row[], action: SelectionAction) {
+  if (action === &#x27;approve&#x27;) {
+    return rows.filter(row =&gt; row.status === &#x27;pending&#x27;)
+  }
+  <span class="comment">// 其他动作分支省略，本题只调用 approve</span>
+}</code></pre></figure><figure class="code "><figcaption>B / Java · 对照示例</figcaption><pre><code>import java.util.List;
+class Example {
+    record Registration(String status) {}
+    static List&lt;Registration&gt; forApproval(List&lt;Registration&gt; rows) {
+        return rows.stream()
+            .filter(row -&gt; &quot;pending&quot;.equals(row.status()))
+            .toList();
+    }
+}</code></pre></figure></div></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>两段分别留下哪条记录？指出决定结果的表达式。</p></li><li><span class="qnum">02</span><p>将字面量 <code>aprove</code> 传给 A 的 <code>action</code>，类型检查会怎样提示？B 的 <code>String status</code> 能否排除拼错的状态？</p></li><li><span class="qnum">03</span><p>仅执行筛选后，能否告诉管理员“审核成功”？说明判断依据。</p></li></ol></aside></div></section><section class="slide " role="group" aria-roledescription="幻灯片" aria-label="第 2 题，共 7 题" data-title="同一条微信消息，有无 Agent 时怎样返回">
+    <header class="slide-heading"><p class="eyebrow">第一类 · 02</p><h2>同一条微信消息，有无 Agent 时怎样返回</h2></header>
+    <div class="slide-body"><div class="materials"><p class="scenario">甲乙均发送“本周有哪些活动？”，身份和窗口有效。<code>Enabled=true</code>，机器人均为 <code>BOT_A</code>，白名单仅含甲 <code>U_A</code>。</p><figure class="code compact"><figcaption>W / C · 微信页面与 API</figcaption><pre><code>function sendMessage(data) {
+  const { conversation_id, ...body } = data
+  return request.post(&#x27;/example/conversations/&#x27; +
+    encodeURIComponent(conversation_id) + &#x27;/messages&#x27;, body)
+}
+const res = await sendMessage({ content: inputValue,
+  robot_id: robotId, conversation_id: scope.id })
+if (!this.isConversationScope(scope)) return
+this.setData({ messages: newMessages })</code></pre></figure><figure class="code compact"><figcaption>G / R · 服务端分支</figcaption><pre><code>func agentRouteEnabled(userID, robotID string) bool {
+  return cfg.Enabled &amp;&amp; robotID == cfg.RobotID &amp;&amp;
+    cfg.AllowedUsers[userID]
+}
+if err := ValidateConversation(userID, robotID, conversationID);
+  err != nil { return nil, err }
+if conversationID != &quot;&quot; &amp;&amp; agentRouteEnabled(userID, robotID) {
+  bundle, err = callAgentRuntime(userID, conversationID, robotID, content)
+} else { bundle, err = generateRobotReply(robotID, content) }
+if err != nil { return nil, err }</code></pre></figure><p class="material-note"><code>scope</code> 是发送时用户、窗口、页面版本的快照；切换窗口后不再匹配。普通路径先检索，未命中再问答；Agent 错误直接返回。</p></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>甲乙是否调用不同的前端 API？请求中的窗口 ID 来自哪里？</p></li><li><span class="qnum">02</span><p>依据三个路由条件，说明甲乙各走哪条服务端路径。</p></li><li><span class="qnum">03</span><p>甲发送后切换窗口，旧响应才到达。哪条语句阻止旧回复进入新窗口？哪个模块更新页面？</p></li></ol><figure class="diagram"><svg
+ viewBox="0.00 0.00 484.28 363.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="聊天接口、窗口校验、Agent 路由与页面更新">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(8.64 354.64)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>w</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M418,-346C418,-346 272,-346 272,-346 266,-346 260,-340 260,-334 260,-334 260,-322 260,-322 260,-316 266,-310 272,-310 272,-310 418,-310 418,-310 424,-310 430,-316 430,-322 430,-322 430,-334 430,-334 430,-340 424,-346 418,-346"/>
+<text text-anchor="middle" x="345" y="-324.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">W / C · 同一个聊天 API</text>
+</g>
+
+<g id="node2" class="node">
+<title>g</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M333.33,-282.22C333.33,-282.22 234.67,-258.78 234.67,-258.78 228.84,-257.39 228.84,-254.61 234.67,-253.22 234.67,-253.22 333.33,-229.78 333.33,-229.78 339.16,-228.39 350.84,-228.39 356.67,-229.78 356.67,-229.78 455.33,-253.22 455.33,-253.22 461.16,-254.61 461.16,-257.39 455.33,-258.78 455.33,-258.78 356.67,-282.22 356.67,-282.22 350.84,-283.61 339.16,-283.61 333.33,-282.22"/>
+<text text-anchor="middle" x="345" y="-252.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">窗口归属有效？</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>w&#45;&gt;g</title>
+<path fill="none" stroke="#6a8a7e" d="M345,-309.7C345,-304.29 345,-298.11 345,-291.93"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="347.28,-291.77 345,-285.27 342.73,-291.77 347.28,-291.77"/>
+</g>
+
+<g id="node3" class="node">
+<title>r</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M161.17,-189.02C161.17,-189.02 11.83,-163.98 11.83,-163.98 5.92,-162.99 5.92,-161.01 11.83,-160.02 11.83,-160.02 161.17,-134.98 161.17,-134.98 167.08,-133.99 178.92,-133.99 184.83,-134.98 184.83,-134.98 334.17,-160.02 334.17,-160.02 340.08,-161.01 340.08,-162.99 334.17,-163.98 334.17,-163.98 184.83,-189.02 184.83,-189.02 178.92,-190.01 167.08,-190.01 161.17,-189.02"/>
+<text text-anchor="middle" x="173" y="-158.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">开关 / 机器人 / 用户条件</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>g&#45;&gt;r</title>
+<path fill="none" stroke="#6a8a7e" d="M308.52,-235.49C282.38,-221.5 246.97,-202.56 218.9,-187.55"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="219.83,-185.47 213.03,-184.41 217.69,-189.48 219.83,-185.47"/>
+<text text-anchor="middle" x="276" y="-206.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">是</text>
+</g>
+
+<g id="node6" class="node">
+<title>e</title>
+<path fill="#fcf1ed" stroke="#dec6ba" stroke-width="1.1" d="M431,-180C431,-180 375,-180 375,-180 369,-180 363,-174 363,-168 363,-168 363,-156 363,-156 363,-150 369,-144 375,-144 375,-144 431,-144 431,-144 437,-144 443,-150 443,-156 443,-156 443,-168 443,-168 443,-174 437,-180 431,-180"/>
+<text text-anchor="middle" x="403" y="-158.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">返回错误</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>g&#45;&gt;e</title>
+<path fill="none" stroke="#6a8a7e" d="M360.54,-230.35C369.29,-216.47 380.14,-199.26 388.68,-185.71"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="390.65,-186.86 392.19,-180.15 386.8,-184.43 390.65,-186.86"/>
+<text text-anchor="middle" x="383" y="-206.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">否</text>
+</g>
+
+<g id="node4" class="node">
+<title>a</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M148.5,-97C148.5,-97 35.5,-97 35.5,-97 29.5,-97 23.5,-91 23.5,-85 23.5,-85 23.5,-73 23.5,-73 23.5,-67 29.5,-61 35.5,-61 35.5,-61 148.5,-61 148.5,-61 154.5,-61 160.5,-67 160.5,-73 160.5,-73 160.5,-85 160.5,-85 160.5,-91 154.5,-97 148.5,-97"/>
+<text text-anchor="middle" x="92" y="-75.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">callAgentRuntime</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>r&#45;&gt;a</title>
+<path fill="none" stroke="#6a8a7e" d="M148.7,-136.7C137.71,-125.71 124.81,-112.81 114.09,-102.09"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="115.54,-100.33 109.34,-97.34 112.33,-103.54 115.54,-100.33"/>
+<text text-anchor="middle" x="144.5" y="-112.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">满足</text>
+</g>
+
+<g id="node5" class="node">
+<title>n</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M320.5,-97C320.5,-97 189.5,-97 189.5,-97 183.5,-97 177.5,-91 177.5,-85 177.5,-85 177.5,-73 177.5,-73 177.5,-67 183.5,-61 189.5,-61 189.5,-61 320.5,-61 320.5,-61 326.5,-61 332.5,-67 332.5,-73 332.5,-73 332.5,-85 332.5,-85 332.5,-91 326.5,-97 320.5,-97"/>
+<text text-anchor="middle" x="255" y="-75.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">generateRobotReply</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>r&#45;&gt;n</title>
+<path fill="none" stroke="#6a8a7e" d="M197.6,-136.7C208.81,-125.62 221.98,-112.62 232.87,-101.86"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="234.68,-103.27 237.7,-97.09 231.48,-100.04 234.68,-103.27"/>
+<text text-anchor="middle" x="241" y="-112.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">不满足</text>
+</g>
+
+<g id="node7" class="node">
+<title>v</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M266.5,-36C266.5,-36 79.5,-36 79.5,-36 73.5,-36 67.5,-30 67.5,-24 67.5,-24 67.5,-12 67.5,-12 67.5,-6 73.5,0 79.5,0 79.5,0 266.5,0 266.5,0 272.5,0 278.5,-6 278.5,-12 278.5,-12 278.5,-24 278.5,-24 278.5,-30 272.5,-36 266.5,-36"/>
+<text text-anchor="middle" x="173" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">W · 检查窗口快照 → setData</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>a&#45;&gt;v</title>
+<path fill="none" stroke="#6a8a7e" d="M115.43,-60.93C124.41,-54.39 134.77,-46.85 144.2,-39.98"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="145.71,-41.69 149.62,-36.03 143.03,-38.02 145.71,-41.69"/>
+</g>
+
+<g id="edge7" class="edge">
+<title>n&#45;&gt;v</title>
+<path fill="none" stroke="#6a8a7e" d="M231.28,-60.93C222.19,-54.39 211.71,-46.85 202.16,-39.98"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="203.27,-37.98 196.66,-36.03 200.61,-41.67 203.27,-37.98"/>
+</g>
+</g>
+</svg>
+</figure></aside></div></section><section class="slide " role="group" aria-roledescription="幻灯片" aria-label="第 3 题，共 7 题" data-title="输入「报名 A1」后">
+    <header class="slide-heading"><p class="eyebrow">第一类 · 03</p><h2>输入「报名 A1」后</h2></header>
+    <div class="slide-body"><div class="materials"><p class="scenario">学生已获准聊天报名，在同一窗口查到 A1；活动可见、未截止、尚未获批。发送“报名 A1”后关闭小程序。</p><figure class="code compact"><figcaption>P · 核验 / S · 待确认操作 / B · 报名业务</figcaption><pre><code>处理“报名 A1”：
+    P 核对活动和权限
+    operation.expiresAt = 当前时间 + 5 分钟
+    operation.status = pending_confirmation
+    S.prepareAction(operation)
+    返回“尚未提交；请在 5 分钟内发送确认码，或放弃”
+    结束本次请求
+处理“确认 操作码”：
+    按当前 scope 和确认码哈希查找 operation
+    找不到：返回无效，结束
+    如果状态是 unknown 或 executing：
+        向 B 查询本人的报名状态
+        查到 approved / pending：保存已处理并返回相应状态
+        查询失败或结果不确定：返回稍后查询
+        结束本次请求，不重复提交
+    如果状态不是 pending_confirmation：返回当前结果，结束
+    如果当前时间 &gt;= expiresAt：
+        S 将状态改为 expired
+        返回已过期，结束
+    P 再核对活动信息，并原子取得执行资格
+    B.register(学生, 活动, 幂等键=operation.id)
+    已确认 approved / pending：保存 succeeded
+    结果不确定：保存 unknown</code></pre></figure></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>关闭小程序前，哪些记录可能已写入？报名业务是否已经提交？</p></li><li><span class="qnum">02</span><p>六分钟后才发送原确认码，沿伪代码说明本次请求的结果。</p></li><li><span class="qnum">03</span><p>及时确认但响应中断，操作已记为 <code>unknown</code>。再次发送相同确认码，后端怎样处理？</p></li></ol><div class="facts"><p><code>pending_operations</code>：等待确认或执行的操作。</p><p><code>registrations</code>：实际报名结果。</p><p><code>scope</code> 绑定学生与窗口。</p><p><code>pending</code> = 报名已提交、待审核；<code>pending_confirmation</code> = 操作待确认。</p><p>活动内容与权限持续有效；幂等键标识同一次逻辑操作。</p></div></aside></div></section><section class="slide retrieval-slide" role="group" aria-roledescription="幻灯片" aria-label="第 4 题，共 7 题" data-title="后台任务如何调用检索算法">
+    <header class="slide-heading"><p class="eyebrow">第一类 · 04</p><h2>后台任务如何调用检索算法</h2></header>
+    <div class="slide-body"><div class="materials"><p class="scenario">后台任务从学生可见信息选一条事实，再由模型改写为提示。服务及网络可用；模型选材后正常返回。</p><figure class="code compact"><figcaption>T1 / K2 · JavaScript；R1 / R2 · 伪代码</figcaption><pre><code><span class="comment">// T1 · 后台任务</span>
+const sources = await retrieval.collect(job.user_id, &#x27;&#x27;, true)
+const selected = choose(
+  sources.filter(s =&gt; s.status === &#x27;hit&#x27; &amp;&amp; s.facts.length &gt; 0))
+if (!selected) return store.finish(job, null, &#x27;no_evidence&#x27;)
+const fact = choose(selected.facts)
+const text = await model.rewrite(fact)
+return store.finish(job, text, &#x27;generated&#x27;)
+
+<span class="comment">// R1 · collect：并行查询各来源，独立保留状态</span>
+<span class="comment">// R2 · knowledge(question)</span>
+response = POST &quot;/example/knowledge/retrieve&quot; with {question}
+if !response.ok: return {source:&quot;knowledge&quot;, status:&quot;unavailable&quot;, facts:[]}
+<span class="comment">// 有效结果 → hit；正常无匹配 → no_match</span>
+
+<span class="comment">// K2 · 接口入口；检索之前</span>
+if (!q) return res.status(400).json({code:400, message:&#x27;问题不能为空&#x27;})</code></pre></figure><table><thead><tr><th scope="col">顺序</th><th scope="col">非空问句的检索路径</th></tr></thead><tbody><tr><td>1</td><td>FAQ 标题精确匹配：命中即返回</td></tr><tr><td>2</td><td>FAQ 模糊匹配：满足相似度及候选差距即返回</td></tr><tr><td>3</td><td>概念树：规则匹配且片段有效即返回</td></tr><tr><td>4</td><td>向量 + 关键词：合并、去重、排序、可靠性判断</td></tr></tbody></table><p class="material-note">FAQ：人工问答；切片：文档短段；概念树：关键词→文档位置。向量服务不可用时仍可尝试关键词。</p></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>从 <code>generate(job)</code> 写出知识查询调用链，并解释 T1 的三个实参。</p></li><li><span class="qnum">02</span><p>说明非空问句的检索顺序与提前返回条件。</p></li><li><span class="qnum">03</span><p>空问句触发哪个接口分支？R2 将它转为什么来源状态？</p></li><li><span class="qnum">04</span><p>知识不可用，但活动来源 <code>hit</code> 且有事实时，T1 如何继续？模型负责什么？</p></li></ol><div class="facts"><p><code>collect(user, question, proactive)</code></p><p><code>true</code>：知识、活动、事务、生活、课程、就业；不查询积分。来源独立汇总。</p><p><code>choose</code>：非空集合选一项，空集合返回 null。</p></div><figure class="diagram"><svg
+ viewBox="0.00 0.00 337.78 369.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="后台任务从知识和其他业务来源选择事实后交给模型改写">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(8.64 360.64)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>t</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M242.5,-352C242.5,-352 120.5,-352 120.5,-352 114.5,-352 108.5,-346 108.5,-340 108.5,-340 108.5,-328 108.5,-328 108.5,-322 114.5,-316 120.5,-316 120.5,-316 242.5,-316 242.5,-316 248.5,-316 254.5,-322 254.5,-328 254.5,-328 254.5,-340 254.5,-340 254.5,-346 248.5,-352 242.5,-352"/>
+<text text-anchor="middle" x="181.5" y="-330.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">T1 · generate(job)</text>
+</g>
+
+<g id="node2" class="node">
+<title>c</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M304,-291C304,-291 59,-291 59,-291 53,-291 47,-285 47,-279 47,-279 47,-267 47,-267 47,-261 53,-255 59,-255 59,-255 304,-255 304,-255 310,-255 316,-261 316,-267 316,-267 316,-279 316,-279 316,-285 310,-291 304,-291"/>
+<text text-anchor="middle" x="181.5" y="-269.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">R1 · collect(user, question, proactive)</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>t&#45;&gt;c</title>
+<path fill="none" stroke="#6a8a7e" d="M181.5,-315.93C181.5,-310.36 181.5,-304.05 181.5,-298.06"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="183.78,-297.73 181.5,-291.23 179.23,-297.73 183.78,-297.73"/>
+</g>
+
+<g id="node3" class="node">
+<title>k</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M183,-230C183,-230 12,-230 12,-230 6,-230 0,-224 0,-218 0,-218 0,-206 0,-206 0,-200 6,-194 12,-194 12,-194 183,-194 183,-194 189,-194 195,-200 195,-206 195,-206 195,-218 195,-218 195,-224 189,-230 183,-230"/>
+<text text-anchor="middle" x="97.5" y="-208.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">R2 · knowledge(question)</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>c&#45;&gt;k</title>
+<path fill="none" stroke="#6a8a7e" d="M157.2,-254.93C147.8,-248.33 136.95,-240.71 127.1,-233.79"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="128.37,-231.9 121.74,-230.03 125.75,-235.62 128.37,-231.9"/>
+</g>
+
+<g id="node4" class="node">
+<title>b</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M308.5,-230C308.5,-230 224.5,-230 224.5,-230 218.5,-230 212.5,-224 212.5,-218 212.5,-218 212.5,-206 212.5,-206 212.5,-200 218.5,-194 224.5,-194 224.5,-194 308.5,-194 308.5,-194 314.5,-194 320.5,-200 320.5,-206 320.5,-206 320.5,-218 320.5,-218 320.5,-224 314.5,-230 308.5,-230"/>
+<text text-anchor="middle" x="266.5" y="-208.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">其他业务来源</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>c&#45;&gt;b</title>
+<path fill="none" stroke="#6a8a7e" d="M206.09,-254.93C215.6,-248.33 226.58,-240.71 236.55,-233.79"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="237.93,-235.6 241.97,-230.03 235.33,-231.86 237.93,-235.6"/>
+</g>
+
+<g id="node5" class="node">
+<title>h</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M187,-169C187,-169 56,-169 56,-169 50,-169 44,-163 44,-157 44,-157 44,-145 44,-145 44,-139 50,-133 56,-133 56,-133 187,-133 187,-133 193,-133 199,-139 199,-145 199,-145 199,-157 199,-157 199,-163 193,-169 187,-169"/>
+<text text-anchor="middle" x="121.5" y="-147.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">K2 · POST 知识接口</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>k&#45;&gt;h</title>
+<path fill="none" stroke="#6a8a7e" d="M104.44,-193.93C106.81,-188.12 109.5,-181.51 112.03,-175.28"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="114.15,-176.11 114.49,-169.23 109.93,-174.39 114.15,-176.11"/>
+</g>
+
+<g id="node6" class="node">
+<title>s</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M291.5,-97C291.5,-97 119.5,-97 119.5,-97 113.5,-97 107.5,-91 107.5,-85 107.5,-85 107.5,-73 107.5,-73 107.5,-67 113.5,-61 119.5,-61 119.5,-61 291.5,-61 291.5,-61 297.5,-61 303.5,-67 303.5,-73 303.5,-73 303.5,-85 303.5,-85 303.5,-91 297.5,-97 291.5,-97"/>
+<text text-anchor="middle" x="205.5" y="-75.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">T1 · 选择有事实的 hit 来源</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>b&#45;&gt;s</title>
+<path fill="none" stroke="#6a8a7e" d="M267.4,-193.64C267.68,-172.07 265.35,-134.94 248.5,-109 246.75,-106.31 244.66,-103.81 242.35,-101.49"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="243.7,-99.65 237.35,-97 240.66,-103.04 243.7,-99.65"/>
+</g>
+
+<g id="edge5" class="edge">
+<title>h&#45;&gt;s</title>
+<path fill="none" stroke="#6a8a7e" d="M135.27,-132.61C141.85,-124.89 150.1,-116 158.5,-109 161.87,-106.2 165.53,-103.47 169.27,-100.88"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="170.65,-102.7 174.79,-97.2 168.12,-98.91 170.65,-102.7"/>
+<text text-anchor="middle" x="203.5" y="-112.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">HTTP → 来源状态</text>
+</g>
+
+<g id="node7" class="node">
+<title>m</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M296.5,-36C296.5,-36 114.5,-36 114.5,-36 108.5,-36 102.5,-30 102.5,-24 102.5,-24 102.5,-12 102.5,-12 102.5,-6 108.5,0 114.5,0 114.5,0 296.5,0 296.5,0 302.5,0 308.5,-6 308.5,-12 308.5,-12 308.5,-24 308.5,-24 308.5,-30 302.5,-36 296.5,-36"/>
+<text text-anchor="middle" x="205.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">选择事实 → 模型改写 → 保存</text>
+</g>
+
+<g id="edge7" class="edge">
+<title>s&#45;&gt;m</title>
+<path fill="none" stroke="#6a8a7e" d="M205.5,-60.93C205.5,-55.36 205.5,-49.05 205.5,-43.06"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="207.78,-42.73 205.5,-36.23 203.23,-42.73 207.78,-42.73"/>
+</g>
+</g>
+</svg>
+</figure></aside></div></section><section class="slide isolation-slide" role="group" aria-roledescription="幻灯片" aria-label="第 5 题，共 7 题" data-title="用户隔离架构与四类隔离">
+    <header class="slide-heading"><p class="eyebrow">第一类 · 05</p><h2>用户隔离架构与四类隔离</h2></header>
+    <div class="slide-body"><div class="materials"><p class="scenario">学生与管理员共用后端和数据库。只分析下列路径。</p><div class="code-grid"><figure class="code compact"><figcaption>A · 凭证成功分支</figcaption><pre><code>claims, err := ValidateToken(token, verificationKey)
+if err == nil {
+    nextCtx := context.WithValue(ctx, UserIDKey, claims.UserID)
+    nextCtx = context.WithValue(nextCtx, RoleKey, claims.Role)
+    return nextCtx, nil
+}
+<span class="comment">// 其他认证分支省略</span></code></pre></figure><figure class="code compact"><figcaption>B · 管理聊天列表</figcaption><pre><code>role, ok := ctx.Value(RoleKey).(string)
+if !ok || (role != &quot;admin&quot; &amp;&amp; role != &quot;superadmin&quot;) {
+    return ForbiddenResult()
+}
+<span class="comment">// 通过后继续读取管理聊天列表</span></code></pre></figure><figure class="code compact"><figcaption>C · 本人通知</figcaption><pre><code>whereParts := []string{
+    &quot;n.deleted_at IS NULL&quot;,
+    &quot;n.status = &#x27;active&#x27;&quot;,
+    &quot;un.user_id = $1&quot;,
+}
+args := []interface{}{req.UserID}</code></pre></figure><figure class="code compact"><figcaption>D · 聊天作用域</figcaption><pre><code>const key = [input.userId, input.conversationId, input.robotId, appId].join(&#x27;:&#x27;)
+const owned = await conn.query(
+  &#x27;SELECT id FROM conversations WHERE id=$1 AND user_id=$2 AND robot_id=$3 AND deleted_at IS NULL&#x27;,
+  [input.conversationId, input.userId, input.robotId]
+)
+if (!owned.rows.length) throw new Error(&#x27;conversation_not_found&#x27;)
+const scope = &#x27;chat:&#x27; + key</code></pre></figure></div><p class="material-note">C：从认证 context 取用户 ID，无效则拒绝；赋给 <code>req.UserID</code>，不用客户端另填值。n / un 按通知 ID 关联。<code>$1</code> 是 SQL 参数；D 的 appId 来自服务端配置。</p></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>将 A–D 对应到最直接体现的隔离类别，指出字段或条件。</p></li><li><span class="qnum">02</span><p>C 中限制用户数据的 ID 从哪里来，如何进入 SQL？</p></li><li><span class="qnum">03</span><p>学生与管理员在 B 中的结果有何不同？这段代码能够证明什么范围？</p></li><li><span class="qnum">04</span><p>用户 <code>U_A</code> 从自己的 <code>C1</code> 切到 <code>C2</code>，机器人与 appId 不变：scope 如何变化？归属校验有什么作用？</p></li></ol><div class="facts four-types"><span>身份</span><span>角色</span><span>用户数据</span><span>Agent 会话</span></div></aside></div></section><section class="slide " role="group" aria-roledescription="幻灯片" aria-label="第 6 题，共 7 题" data-title="积分商城的实时竞价与 Agent">
+    <header class="slide-heading"><p class="eyebrow">第二类 · 01</p><h2>积分商城的实时竞价与 Agent</h2></header>
+    <div class="slide-body"><div class="materials"><p class="scenario">学生一周最多用 <strong>100 积分</strong>竞拍两场活动的限量权益，优先周五，也接受周三。人工与受托 Agent 均可提交意向。现有商城仅查询积分、商品和兑换；竞价为本题设想。</p><div class="choice-row"><span>提醒</span><span>建议，学生确认</span><span>授权内代投</span></div><table><thead><tr><th scope="col">模块</th><th scope="col">职责</th></tr></thead><tbody><tr><td>M / A</td><td>学生手动输入 / Agent 建议或代投</td></tr><tr><td>U</td><td>统一入口：身份、授权、轮次、截止时间</td></tr><tr><td>P</td><td>预算节奏：判断当前参与程度</td></tr><tr><td>L</td><td>积分账本：原子查额度、预留、结算、释放</td></tr><tr><td>E / Q</td><td>竞价处理 / 按稳定操作 ID 回查结果</td></tr><tr><td>V</td><td>页面区分建议、已受理、已成交</td></tr></tbody></table><div class="facts"><p><strong>机会与响应</strong>：统一轮次、权益、委托主体、整数积分、截止时间、逻辑出价 ID。</p><p><strong>预算节奏</strong>：预测机会 → 分配预算 → 比较累计实际与计划 → 调整后续参与；不直接计算报价。</p><p><strong>账务</strong>：pending 预留；post 结算；void / 到期释放。重试同一事件复用 ID，不同阶段记录相互关联。</p><p><strong>现有参考</strong>：报名 unknown / executing 先回查；后台结果提交时核验用户、租约 token 和未过期条件。</p></div></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p><strong>接入 Agent。</strong>选择模式与模块，画出人工出价和 Agent 共用统一业务入口的职责图。</p></li><li><span class="qnum">02</span><p><strong>算法与 Agent 共存。</strong>周三计划累计花 30 分，实际花 40 分，Agent 又建议 25 分机会。谁怎样决定最终准入？</p></li><li><span class="qnum">03</span><p><strong>校园预算规则。</strong>总预算 100 分，未消费或预留；周五硬保留 60 分，周三出现 45 分机会。写规则并判断是否参与。</p></li><li><span class="qnum">04</span><p><strong>Runtime 并发。</strong>两个窗口同时提交独立出价，第一笔已预留但回执迟到。画状态流程，避免重复扣分和超额承诺。</p></li></ol></aside></div></section><section class="slide peak-slide" role="group" aria-roledescription="幻灯片" aria-label="第 7 题，共 7 题" data-title="高峰访问失败，怎样保护服务器而不误伤学生？">
+<header class="slide-heading"><p class="eyebrow">第二类 · 03</p><h2>高峰访问失败，怎样保护服务器而不误伤学生？</h2></header>
+<div class="material-tabs" role="tablist" aria-label="第七题材料"><button type="button" id="tab-0" role="tab" aria-controls="material-0" aria-selected="true" tabindex="0">01 日志取证</button><button type="button" id="tab-1" role="tab" aria-controls="material-1" aria-selected="false" tabindex="-1">02 两种控制</button><button type="button" id="tab-2" role="tab" aria-controls="material-2" aria-selected="false" tabindex="-1">03 缓存审查</button></div><div id="material-0" class="material-panel" role="tabpanel" aria-labelledby="tab-0" ><div class="materials"><div class="logs-grid"><figure class="code compact"><figcaption>A · 登录</figcaption><pre><code>09:21:00.285  info  AuthHandler:83
+09:21:00.356  error  AuthHandler:89</code></pre></figure><figure class="code compact"><figcaption>B · 聊天</figcaption><pre><code>09:12:32.582  warn  ChatService:542
+09:12:35.039  warn  ChatService:542
+09:12:35.182  warn  ChatService:542</code></pre></figure><figure class="code compact"><figcaption>C · 关闭与启动</figcaption><pre><code>09:53:39.987  info  ChatMain:146
+09:53:39.989  info  Discovery:148
+09:53:39.990  info  Discovery:162
+09:53:39.990  info  Discovery:170
+09:53:39.990  info  ChatMain:155
+09:53:39.990  info  Discovery:281
+09:53:39.990  warn  Discovery:112
+09:53:40.547  info  ChatMain:43
+09:53:40.556  info  Discovery:42
+09:53:40.578  info  Discovery:83
+09:53:40.580  info  Discovery:130
+09:53:40.580  info  ChatMain:135</code></pre></figure><figure class="code compact"><figcaption>D · 容器</figcaption><pre><code>00:00:13.354+08:00  info  closed_fifo
+00:00:13.354+08:00  info  closed_fifo
+00:00:13.356+08:00  info  healthcheck_missing_curl
+00:00:45.603+08:00  info  closed_fifo
+00:00:45.603+08:00  info  closed_fifo
+00:00:45.605+08:00  info  healthcheck_missing_curl</code></pre></figure></div><table><thead><tr><th scope="col">统计项</th><th scope="col">同批记录汇总</th></tr></thead><tbody><tr><td>AuthHandler :83 / :89 / :101</td><td>4,265 / 3,778 / 487</td></tr><tr><td>09:21–09:22 的 :89 / ChatService:542</td><td>1,271 / 337</td></tr><tr><td>应用总行数 / missing_curl</td><td>192,129 / 2,679（全天）</td></tr><tr><td>网关完成日志 / 分钟峰值 / 秒峰值</td><td>23,350 / 1,902 / 60</td></tr></tbody></table></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>依据 A–D 各写一个发现，共四个。用对应证据说明判断的边界。</p></li></ol><div class="facts"><h3>历史 caller 索引 H</h3><p><code>AuthHandler:83 / :89 / :101</code><br>登录入口 / Login 错误 / 成功分支</p><p><code>ChatService:542</code><br>QA Code ≠ 200，返回默认回复</p><p><code>ChatMain:146 / :155 / :43 / :135</code><br>退出后开始关闭 / 关闭完成 / 初始化 / 启动 gRPC</p><p><code>closed_fifo</code>：管道端点关闭<br><code>healthcheck_missing_curl</code>：探针缺 curl</p></div><p class="material-note">D0 为脱敏故障日。应用时区未标记，与容器 +08:00 对齐仅为假设；错误正文已移除。H 尚未证明是 D0 部署版本。</p></aside></div><div id="material-1" class="material-panel" role="tabpanel" aria-labelledby="tab-1" hidden><div class="materials"><figure class="diagram"><svg
+ viewBox="0.00 0.00 465.78 369.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="校园系统现有调用结构">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(8.64 360.64)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>u</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M356,-352C356,-352 206,-352 206,-352 200,-352 194,-346 194,-340 194,-340 194,-328 194,-328 194,-322 200,-316 206,-316 206,-316 356,-316 356,-316 362,-316 368,-322 368,-328 368,-328 368,-340 368,-340 368,-346 362,-352 356,-352"/>
+<text text-anchor="middle" x="281" y="-330.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">微信小程序 / Vue 管理端</text>
+</g>
+
+<g id="node2" class="node">
+<title>n</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M298.5,-291C298.5,-291 263.5,-291 263.5,-291 257.5,-291 251.5,-285 251.5,-279 251.5,-279 251.5,-267 251.5,-267 251.5,-261 257.5,-255 263.5,-255 263.5,-255 298.5,-255 298.5,-255 304.5,-255 310.5,-261 310.5,-267 310.5,-267 310.5,-279 310.5,-279 310.5,-285 304.5,-291 298.5,-291"/>
+<text text-anchor="middle" x="281" y="-269.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">Nginx</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>u&#45;&gt;n</title>
+<path fill="none" stroke="#6a8a7e" d="M281,-315.93C281,-310.36 281,-304.05 281,-298.06"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="283.28,-297.73 281,-291.23 278.73,-297.73 283.28,-297.73"/>
+</g>
+
+<g id="node3" class="node">
+<title>g</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M246,-230C246,-230 174,-230 174,-230 168,-230 162,-224 162,-218 162,-218 162,-206 162,-206 162,-200 168,-194 174,-194 174,-194 246,-194 246,-194 252,-194 258,-200 258,-206 258,-206 258,-218 258,-218 258,-224 252,-230 246,-230"/>
+<text text-anchor="middle" x="210" y="-208.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">Go API 网关</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>n&#45;&gt;g</title>
+<path fill="none" stroke="#6a8a7e" d="M260.46,-254.93C252.88,-248.63 244.17,-241.4 236.16,-234.73"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="237.19,-232.64 230.74,-230.23 234.28,-236.14 237.19,-232.64"/>
+</g>
+
+<g id="node4" class="node">
+<title>f</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M436.5,-230C436.5,-230 303.5,-230 303.5,-230 297.5,-230 291.5,-224 291.5,-218 291.5,-218 291.5,-206 291.5,-206 291.5,-200 297.5,-194 303.5,-194 303.5,-194 436.5,-194 436.5,-194 442.5,-194 448.5,-200 448.5,-206 448.5,-206 448.5,-218 448.5,-218 448.5,-224 442.5,-230 436.5,-230"/>
+<text text-anchor="middle" x="370" y="-208.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">Node 文件 / 知识检索</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>n&#45;&gt;f</title>
+<path fill="none" stroke="#6a8a7e" d="M306.74,-254.93C316.71,-248.33 328.2,-240.71 338.64,-233.79"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="340.15,-235.51 344.32,-230.03 337.64,-231.72 340.15,-235.51"/>
+</g>
+
+<g id="node5" class="node">
+<title>s</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M282,-169C282,-169 120,-169 120,-169 114,-169 108,-163 108,-157 108,-157 108,-145 108,-145 108,-139 114,-133 120,-133 120,-133 282,-133 282,-133 288,-133 294,-139 294,-145 294,-145 294,-157 294,-157 294,-163 288,-169 282,-169"/>
+<text text-anchor="middle" x="201" y="-147.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">gRPC · 认证 / 活动 / 聊天</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>g&#45;&gt;s</title>
+<path fill="none" stroke="#6a8a7e" d="M207.4,-193.93C206.53,-188.24 205.54,-181.78 204.61,-175.67"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="206.86,-175.31 203.63,-169.23 202.36,-176 206.86,-175.31"/>
+</g>
+
+<g id="node8" class="node">
+<title>p</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M231,-36C231,-36 157,-36 157,-36 151,-36 145,-30 145,-24 145,-24 145,-12 145,-12 145,-6 151,0 157,0 157,0 231,0 231,0 237,0 243,-6 243,-12 243,-12 243,-24 243,-24 243,-30 237,-36 231,-36"/>
+<text text-anchor="middle" x="194" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">PostgreSQL</text>
+</g>
+
+<g id="edge8" class="edge">
+<title>f&#45;&gt;p</title>
+<path fill="none" stroke="#6a8a7e" d="M370,-193.87C369.03,-162.8 362.38,-97.05 325,-61 322.03,-58.13 283.99,-46.09 249.66,-35.63"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="250.19,-33.42 243.31,-33.7 248.86,-37.77 250.19,-33.42"/>
+</g>
+
+<g id="node9" class="node">
+<title>r</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M417.5,-36C417.5,-36 382.5,-36 382.5,-36 376.5,-36 370.5,-30 370.5,-24 370.5,-24 370.5,-12 370.5,-12 370.5,-6 376.5,0 382.5,0 382.5,0 417.5,0 417.5,0 423.5,0 429.5,-6 429.5,-12 429.5,-12 429.5,-24 429.5,-24 429.5,-30 423.5,-36 417.5,-36"/>
+<text text-anchor="middle" x="400" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">Redis</text>
+</g>
+
+<g id="edge9" class="edge">
+<title>f&#45;&gt;r</title>
+<path fill="none" stroke="#6a8a7e" d="M384.84,-193.81C387.32,-190.13 389.54,-186.1 391,-182 407.72,-134.87 405.67,-75.27 402.78,-42.78"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="405.04,-42.53 402.15,-36.28 400.51,-42.96 405.04,-42.53"/>
+</g>
+
+<g id="node7" class="node">
+<title>a</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M304.5,-97C304.5,-97 211.5,-97 211.5,-97 205.5,-97 199.5,-91 199.5,-85 199.5,-85 199.5,-73 199.5,-73 199.5,-67 205.5,-61 211.5,-61 211.5,-61 304.5,-61 304.5,-61 310.5,-61 316.5,-67 316.5,-73 316.5,-73 316.5,-85 316.5,-85 316.5,-91 310.5,-97 304.5,-97"/>
+<text text-anchor="middle" x="258" y="-75.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">Agent Runtime</text>
+</g>
+
+<g id="edge10" class="edge">
+<title>s&#45;&gt;a</title>
+<path fill="none" stroke="#6a8a7e" d="M199.18,-132.84C199.18,-124.99 200.43,-115.92 205,-109 206.82,-106.25 208.99,-103.73 211.4,-101.44"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="213.13,-102.95 216.65,-97.04 210.21,-99.47 213.13,-102.95"/>
+<text text-anchor="middle" x="256" y="-112.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">符合接入条件的聊天</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>s&#45;&gt;p</title>
+<path fill="none" stroke="#6a8a7e" d="M196.94,-132.93C194.69,-122.6 192.13,-109.12 191,-97 189.51,-81.07 190.43,-76.99 191,-61 191.21,-55.12 191.58,-48.78 192,-42.86"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="194.28,-42.8 192.5,-36.15 189.75,-42.46 194.28,-42.8"/>
+</g>
+
+<g id="edge7" class="edge">
+<title>s&#45;&gt;r</title>
+<path fill="none" stroke="#6a8a7e" d="M286.61,-132.93C295.15,-129.62 303.45,-125.69 311,-121 343.4,-100.89 370.48,-65.3 385.97,-41.93"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="388.01,-42.95 389.65,-36.27 384.2,-40.47 388.01,-42.95"/>
+</g>
+
+<g id="node6" class="node">
+<title>e</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M116,-230C116,-230 12,-230 12,-230 6,-230 0,-224 0,-218 0,-218 0,-206 0,-206 0,-200 6,-194 12,-194 12,-194 116,-194 116,-194 122,-194 128,-200 128,-206 128,-206 128,-218 128,-218 128,-224 122,-230 116,-230"/>
+<text text-anchor="middle" x="64" y="-208.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">etcd · 服务发现</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>e&#45;&gt;g</title>
+<path fill="none" stroke="#6a8a7e" stroke-dasharray="5,2" d="M128.16,-212C137.16,-212 146.17,-212 155.17,-212"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="155.23,-214.28 161.73,-212 155.23,-209.73 155.23,-214.28"/>
+</g>
+
+<g id="edge12" class="edge">
+<title>a&#45;&gt;f</title>
+<path fill="none" stroke="#6a8a7e" d="M291.98,-97.16C297.33,-100.67 302.55,-104.64 307,-109 330.49,-132.05 349,-165.54 359.72,-187.78"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="357.7,-188.83 362.53,-193.74 361.81,-186.89 357.7,-188.83"/>
+</g>
+
+<g id="edge11" class="edge">
+<title>a&#45;&gt;p</title>
+<path fill="none" stroke="#6a8a7e" d="M239.49,-60.93C232.65,-54.63 224.8,-47.4 217.58,-40.73"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="219.01,-38.96 212.69,-36.23 215.93,-42.31 219.01,-38.96"/>
+</g>
+
+<g id="node10" class="node">
+<title>m</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M328,-36C328,-36 272,-36 272,-36 266,-36 260,-30 260,-24 260,-24 260,-12 260,-12 260,-6 266,0 272,0 272,0 328,0 328,0 334,0 340,-6 340,-12 340,-12 340,-24 340,-24 340,-30 334,-36 328,-36"/>
+<text text-anchor="middle" x="300" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">外部模型</text>
+</g>
+
+<g id="edge13" class="edge">
+<title>a&#45;&gt;m</title>
+<path fill="none" stroke="#6a8a7e" d="M270.15,-60.93C274.38,-54.99 279.19,-48.23 283.7,-41.89"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="285.82,-42.85 287.73,-36.23 282.11,-40.21 285.82,-42.85"/>
+</g>
+</g>
+</svg>
+</figure><div class="events-grid"><table><caption>事件甲 · 固定 [0,10s) 每人最多 3 次</caption><thead><tr><th scope="col">t / 秒</th><th scope="col">事件</th><th scope="col">在途</th></tr></thead><tbody><tr><td>0–.05</td><td>R1 准入、完成</td><td>0</td></tr><tr><td>1–1.05</td><td>R2 准入、完成</td><td>0</td></tr><tr><td>2–2.05</td><td>R3 准入、完成</td><td>0</td></tr><tr><td>3</td><td>R4 → 429，未查日历</td><td>0</td></tr></tbody></table><table><caption>事件乙 · 实例 A 最多 2 个模型工作；每人 10 次/分</caption><thead><tr><th scope="col">t / 秒</th><th scope="col">事件</th><th scope="col">模型工作</th></tr></thead><tbody><tr><td>0</td><td>R1 准入、开始</td><td>1</td></tr><tr><td>1</td><td>R2 准入、开始</td><td>2</td></tr><tr><td>2</td><td>R3 第 3 次准入；无名额 → 503</td><td>2</td></tr><tr><td>8</td><td>R1 完成</td><td>1</td></tr><tr><td>9</td><td>R4 准入、开始</td><td>2</td></tr></tbody></table></div></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>依据事件甲、乙，解释限流控制与并发闸门分别约束什么。</p></li></ol><div class="facts"><h3>已核对材料</h3><p><strong>S0 资源快照</strong><br>宿主机 8 逻辑 CPU / 15.1GiB<br>PostgreSQL 0.5 核 / 1GiB<br>Redis 0.25 核 / 512MiB<br>etcd 0.25 核 / 256MiB</p><p><strong>当前代码 C</strong><br>网关每次查服务地址，取首地址 Dial / Close；阻塞 Dial 后才建立 RPC 超时。</p><p>Agent 写池 10，取连接最多等 5 秒；withScope 可能在模型等待期间持有连接与会话锁。</p><p><strong>事件乙</strong>先检查个人速率，再申请执行名额；名额满立即拒绝，不排队。</p></div><p class="material-note">S0 不等于 D0 负载。Agent 是否部署、实际副本数待核对；两组事件均为教学构造。</p></aside></div><div id="material-2" class="material-panel" role="tabpanel" aria-labelledby="tab-2" hidden><div class="materials"><figure class="code compact"><figcaption>待审伪代码 · 有意含错</figcaption><pre><code>handle(req):
+    tenant = req.verifiedTenantId
+    user   = req.verifiedUserId
+    route  = req.canonicalRoute
+    bucket = &quot;rl:&quot; + str(tenant) + str(user) + &quot;:&quot; + route
+    if not allowFixedWindowAtomic(bucket, 10, 60s):
+        return 429
+    key = encodeTuple(&quot;calendar-v1&quot;, tenant, user,
+                      req.calendarId, req.dateRange)
+    return localSingleflight.Do(key, () =&gt; load(key, req))
+load(key, req):
+    cached = redis.GET(key)
+    if cached exists:
+        return cached
+    lockKey = &quot;lock:&quot; + key
+    token = randomUUID()
+    if not redis.SET(lockKey, token, NX, PX=3000):
+        return waitForCache(key, atMost=300ms)
+    try:
+        cached = redis.GET(key)
+        if cached exists:
+            return cached
+        value = readDBThroughGate(req) <span class="comment">// {version, data}</span>
+        redis.SET(key, value, EX=60)
+        return value
+    finally:
+        compareAndDelete(lockKey, token)</code></pre></figure></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>逐步演算两组输入，提交修订后的架构与关键伪代码：不同身份额度独立；同一身份跨实例共享；旧任务不能覆盖新缓存。</p></li></ol><div class="facts"><p><strong>身份组</strong>：甲 <code>tenant="12", user="34"</code>；乙 <code>tenant="1", user="234"</code>。同为 /calendar，甲本窗口已用 10 次，乙首次落另一实例。</p><p><strong>时序组</strong>：t=0，A 获 3 秒租约、读 v7 后暂停；3.1 租约过期、数据库 v8；3.2 B 获新租约、发布 v8 并释放；4 A 恢复 SET / finally。请求均未超过总截止时间。</p></div><figure class="diagram"><svg
+ viewBox="0.00 0.00 779.78 219.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="待审缓存与共享限流架构">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(8.64 210.64)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>q</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M292,-202C292,-202 165,-202 165,-202 159,-202 153,-196 153,-190 153,-190 153,-178 153,-178 153,-172 159,-166 165,-166 165,-166 292,-166 292,-166 298,-166 304,-172 304,-178 304,-178 304,-190 304,-190 304,-196 298,-202 292,-202"/>
+<text text-anchor="middle" x="228.5" y="-180.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">已认证、已授权请求</text>
+</g>
+
+<g id="node2" class="node">
+<title>l</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M479.5,-202C479.5,-202 349.5,-202 349.5,-202 343.5,-202 337.5,-196 337.5,-190 337.5,-190 337.5,-178 337.5,-178 337.5,-172 343.5,-166 349.5,-166 349.5,-166 479.5,-166 479.5,-166 485.5,-166 491.5,-172 491.5,-178 491.5,-178 491.5,-190 491.5,-190 491.5,-196 485.5,-202 479.5,-202"/>
+<text text-anchor="middle" x="414.5" y="-180.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">A / B · 构造额度 key</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>q&#45;&gt;l</title>
+<path fill="none" stroke="#6a8a7e" d="M304.06,-184C312.89,-184 321.71,-184 330.53,-184"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="330.78,-186.28 337.28,-184 330.78,-181.73 330.78,-186.28"/>
+</g>
+
+<g id="node3" class="node">
+<title>r</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M632,-202C632,-202 537,-202 537,-202 531,-202 525,-196 525,-190 525,-190 525,-178 525,-178 525,-172 531,-166 537,-166 537,-166 632,-166 632,-166 638,-166 644,-172 644,-178 644,-178 644,-190 644,-190 644,-196 638,-202 632,-202"/>
+<text text-anchor="middle" x="584.5" y="-180.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">Redis 原子计数</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>l&#45;&gt;r</title>
+<path fill="none" stroke="#6a8a7e" d="M491.53,-184C500.49,-184 509.45,-184 518.42,-184"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="518.44,-186.28 524.94,-184 518.44,-181.73 518.44,-186.28"/>
+</g>
+
+<g id="node4" class="node">
+<title>sf</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M235.5,-119C235.5,-119 119.5,-119 119.5,-119 113.5,-119 107.5,-113 107.5,-107 107.5,-107 107.5,-95 107.5,-95 107.5,-89 113.5,-83 119.5,-83 119.5,-83 235.5,-83 235.5,-83 241.5,-83 247.5,-89 247.5,-95 247.5,-95 247.5,-107 247.5,-107 247.5,-113 241.5,-119 235.5,-119"/>
+<text text-anchor="middle" x="177.5" y="-97.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">实例内 singleflight</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>r&#45;&gt;sf</title>
+<path fill="none" stroke="#6a8a7e" d="M524.65,-170.72C516.22,-169.08 507.65,-167.46 499.5,-166 398.95,-147.98 372.14,-152.49 272.5,-130 261.04,-127.41 248.92,-124.21 237.32,-120.91"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="237.82,-118.68 230.94,-119.07 236.55,-123.05 237.82,-118.68"/>
+<text text-anchor="middle" x="433" y="-145.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">允许</text>
+</g>
+
+<g id="node11" class="node">
+<title>x</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M750.5,-119C750.5,-119 720.5,-119 720.5,-119 714.5,-119 708.5,-113 708.5,-107 708.5,-107 708.5,-95 708.5,-95 708.5,-89 714.5,-83 720.5,-83 720.5,-83 750.5,-83 750.5,-83 756.5,-83 762.5,-89 762.5,-95 762.5,-95 762.5,-107 762.5,-107 762.5,-113 756.5,-119 750.5,-119"/>
+<text text-anchor="middle" x="735.5" y="-97.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">429</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>r&#45;&gt;x</title>
+<path fill="none" stroke="#6a8a7e" d="M627.48,-165.98C649.62,-156.52 676.68,-143.88 699.5,-130 702.96,-127.89 706.48,-125.51 709.89,-123.05"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="711.29,-124.84 715.14,-119.13 708.57,-121.19 711.29,-124.84"/>
+<text text-anchor="middle" x="687" y="-145.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">拒绝</text>
+</g>
+
+<g id="node5" class="node">
+<title>c</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M364.03,-126.46C364.03,-126.46 292.97,-104.54 292.97,-104.54 287.23,-102.77 287.23,-99.23 292.97,-97.46 292.97,-97.46 364.03,-75.54 364.03,-75.54 369.77,-73.77 381.23,-73.77 386.97,-75.54 386.97,-75.54 458.03,-97.46 458.03,-97.46 463.77,-99.23 463.77,-102.77 458.03,-104.54 458.03,-104.54 386.97,-126.46 386.97,-126.46 381.23,-128.23 369.77,-128.23 364.03,-126.46"/>
+<text text-anchor="middle" x="375.5" y="-97.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">缓存命中？</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>sf&#45;&gt;c</title>
+<path fill="none" stroke="#6a8a7e" d="M247.88,-101C256.84,-101 265.8,-101 274.76,-101"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="274.78,-103.28 281.28,-101 274.78,-98.73 274.78,-103.28"/>
+</g>
+
+<g id="node6" class="node">
+<title>lock</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M586.03,-126.46C586.03,-126.46 514.97,-104.54 514.97,-104.54 509.23,-102.77 509.23,-99.23 514.97,-97.46 514.97,-97.46 586.03,-75.54 586.03,-75.54 591.77,-73.77 603.23,-73.77 608.97,-75.54 608.97,-75.54 680.03,-97.46 680.03,-97.46 685.77,-99.23 685.77,-102.77 680.03,-104.54 680.03,-104.54 608.97,-126.46 608.97,-126.46 603.23,-128.23 591.77,-128.23 586.03,-126.46"/>
+<text text-anchor="middle" x="597.5" y="-97.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">取得租约？</text>
+</g>
+
+<g id="edge7" class="edge">
+<title>c&#45;&gt;lock</title>
+<path fill="none" stroke="#6a8a7e" d="M469.65,-101C478.59,-101 487.68,-101 496.67,-101"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="496.71,-103.28 503.21,-101 496.71,-98.73 496.71,-103.28"/>
+<text text-anchor="middle" x="486.5" y="-107.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">否</text>
+</g>
+
+<g id="node10" class="node">
+<title>out</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M435.5,-36C435.5,-36 405.5,-36 405.5,-36 399.5,-36 393.5,-30 393.5,-24 393.5,-24 393.5,-12 393.5,-12 393.5,-6 399.5,0 405.5,0 405.5,0 435.5,0 435.5,0 441.5,0 447.5,-6 447.5,-12 447.5,-12 447.5,-24 447.5,-24 447.5,-30 441.5,-36 435.5,-36"/>
+<text text-anchor="middle" x="420.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">返回</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>c&#45;&gt;out</title>
+<path fill="none" stroke="#6a8a7e" d="M389,-75.7C394.89,-65.1 401.76,-52.74 407.58,-42.26"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="409.7,-43.13 410.87,-36.34 405.72,-40.92 409.7,-43.13"/>
+<text text-anchor="middle" x="409.5" y="-51.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">是</text>
+</g>
+
+<g id="node7" class="node">
+<title>db</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M163,-36C163,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 163,0 163,0 169,0 175,-6 175,-12 175,-12 175,-24 175,-24 175,-30 169,-36 163,-36"/>
+<text text-anchor="middle" x="87.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">本地闸门 → PostgreSQL</text>
+</g>
+
+<g id="edge8" class="edge">
+<title>lock&#45;&gt;db</title>
+<path fill="none" stroke="#6a8a7e" d="M555.7,-84.83C520.03,-72.6 467.1,-56.15 419.5,-48 323.42,-31.56 297.47,-45.93 200.5,-36 194.49,-35.38 188.3,-34.67 182.07,-33.9"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="182.04,-31.6 175.3,-33.04 181.46,-36.12 182.04,-31.6"/>
+<text text-anchor="middle" x="475.5" y="-51.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">是</text>
+</g>
+
+<g id="node8" class="node">
+<title>wait</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M673.5,-36C673.5,-36 521.5,-36 521.5,-36 515.5,-36 509.5,-30 509.5,-24 509.5,-24 509.5,-12 509.5,-12 509.5,-6 515.5,0 521.5,0 521.5,0 673.5,0 673.5,0 679.5,0 685.5,-6 685.5,-12 685.5,-12 685.5,-24 685.5,-24 685.5,-30 679.5,-36 673.5,-36"/>
+<text text-anchor="middle" x="597.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">有限等待缓存 / 返回繁忙</text>
+</g>
+
+<g id="edge9" class="edge">
+<title>lock&#45;&gt;wait</title>
+<path fill="none" stroke="#6a8a7e" d="M597.5,-71.67C597.5,-62.22 597.5,-51.79 597.5,-42.73"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="599.78,-42.6 597.5,-36.1 595.23,-42.6 599.78,-42.6"/>
+<text text-anchor="middle" x="603.5" y="-51.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">否</text>
+</g>
+
+<g id="node9" class="node">
+<title>pub</title>
+<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M348,-36C348,-36 221,-36 221,-36 215,-36 209,-30 209,-24 209,-24 209,-12 209,-12 209,-6 215,0 221,0 221,0 348,0 348,0 354,0 360,-6 360,-12 360,-12 360,-24 360,-24 360,-30 354,-36 348,-36"/>
+<text text-anchor="middle" x="284.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">发布缓存、释放租约</text>
+</g>
+
+<g id="edge10" class="edge">
+<title>db&#45;&gt;pub</title>
+<path fill="none" stroke="#6a8a7e" d="M175.23,-18C184.27,-18 193.32,-18 202.36,-18"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="202.45,-20.28 208.95,-18 202.45,-15.73 202.45,-20.28"/>
+</g>
+
+<g id="edge11" class="edge">
+<title>pub&#45;&gt;out</title>
+<path fill="none" stroke="#6a8a7e" d="M360.2,-18C368.96,-18 377.72,-18 386.48,-18"/>
+<polygon fill="#6a8a7e" stroke="#6a8a7e" points="386.68,-20.28 393.18,-18 386.68,-15.73 386.68,-20.28"/>
+</g>
+</g>
+</svg>
+</figure><p class="material-note">身份已验证且已授权；单 Redis 主节点。计数与过期原子；encodeTuple 无歧义；compareAndDelete 原子验主；I/O 有总截止；DB 闸门有限等待；未获租约最多等缓存 300ms，不绕过查库。写操作仍受事务与幂等保护。</p></aside></div></section></main>
+<footer class="footer"><nav class="markers" aria-label="选择题目"><button type="button" aria-label="第 1 题：用 TypeScript 和 Java 读同一条报名规则">01</button><button type="button" aria-label="第 2 题：同一条微信消息，有无 Agent 时怎样返回">02</button><button type="button" aria-label="第 3 题：输入「报名 A1」后">03</button><button type="button" aria-label="第 4 题：后台任务如何调用检索算法">04</button><button type="button" aria-label="第 5 题：用户隔离架构与四类隔离">05</button><button type="button" aria-label="第 6 题：积分商城的实时竞价与 Agent">06</button><button type="button" aria-label="第 7 题：高峰访问失败，怎样保护服务器而不误伤学生？">07</button></nav><div class="nav-controls"><span class="count">01 / 07</span><button type="button" id="previous" aria-label="上一题" title="上一题 · ←">←</button><button type="button" id="next" aria-label="下一题" title="下一题 · →">→</button></div></footer>
+<p class="sr-only" role="status" id="status" aria-live="polite"></p></div><script type="module">
+const track=document.querySelector('.track');
+const slides=[...document.querySelectorAll('.slide')];
+const markers=[...document.querySelectorAll('.markers button')];
+const previous=document.querySelector('#previous'),next=document.querySelector('#next');
+const count=document.querySelector('.count'),status=document.querySelector('#status');
+let settled=0,pending=null,raf=0,debounce;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+const nearest=()=>slides.reduce((best,s,i)=>Math.abs(s.offsetLeft-track.scrollLeft)<Math.abs(slides[best].offsetLeft-track.scrollLeft)?i:best,0);
+function mark(i){markers.forEach((m,j)=>j===i?m.setAttribute('aria-current','true'):m.removeAttribute('aria-current'));}
+function sync(announce=true){const i=nearest();if(pending!==null&&Math.abs(slides[pending].offsetLeft-track.scrollLeft)>3)return;
+ pending=null;mark(i);previous.disabled=i===0;next.disabled=i===slides.length-1;
+ if(document.activeElement===previous&&previous.disabled)next.focus();
+ if(document.activeElement===next&&next.disabled)previous.focus();
+ count.textContent=String(i+1).padStart(2,'0')+' / 07';document.title=slides[i].dataset.title+' · 技术面试';
+ history.replaceState(null,'','#/'+(i+1));
+ if(announce&&i!==settled)status.textContent='第 '+(i+1)+' 题，共 7 题。'+slides[i].dataset.title;
+ settled=i;
+}
+function go(i,instant=false){i=Math.max(0,Math.min(slides.length-1,i));pending=i;mark(i);
+ track.scrollTo({left:slides[i].offsetLeft,behavior:'instant'});
+ if(instant||Math.abs(track.scrollLeft-slides[i].offsetLeft)<2)sync();
+}
+previous.addEventListener('click',()=>go((pending??nearest())-1));
+next.addEventListener('click',()=>go((pending??nearest())+1));
+markers.forEach((m,i)=>m.addEventListener('click',()=>go(i)));
+track.addEventListener('scroll',()=>{if(!raf&&pending===null)raf=requestAnimationFrame(()=>{mark(nearest());raf=0});
+ if(!('onscrollend' in track)){clearTimeout(debounce);debounce=setTimeout(sync,140)}
+},{passive:true});
+if('onscrollend' in track)track.addEventListener('scrollend',()=>sync());
+document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest('button,a,input,textarea,select,[contenteditable]'))return;
+ const i=pending??nearest();
+ if(['ArrowRight','PageDown',' ','ArrowLeft','PageUp','Home','End'].includes(e.key)){
+  e.preventDefault();go(e.key==='Home'?0:e.key==='End'?6:['ArrowLeft','PageUp'].includes(e.key)?i-1:i+1);
+ }else if(e.key.toLowerCase()==='f'){e.preventDefault();toggleFullscreen()}
+});
+track.addEventListener('focusin',e=>{const slide=e.target.closest('.slide');if(slide&&slides.indexOf(slide)!==nearest())go(slides.indexOf(slide),true)});
+window.addEventListener('hashchange',()=>{const n=Number(location.hash.slice(2));if(Number.isInteger(n)&&n>=1&&n<=7)go(n-1,true)});
+let resize;window.addEventListener('resize',()=>{clearTimeout(resize);resize=setTimeout(()=>go(settled,true),100)});
+const fs=document.querySelector('#fullscreen');
+async function toggleFullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}catch{}}
+if(!document.fullscreenEnabled)fs.hidden=true;
+fs.addEventListener('click',toggleFullscreen);
+document.addEventListener('fullscreenchange',()=>{fs.setAttribute('aria-label',document.fullscreenElement?'退出全屏':'全屏');fs.setAttribute('aria-pressed',String(!!document.fullscreenElement))});
+const tabs=[...document.querySelectorAll('[role=tab]')];
+function selectTab(i,focus=false){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',String(i===j));t.tabIndex=i===j?0:-1;document.querySelector('#'+t.getAttribute('aria-controls')).hidden=i!==j});if(focus)tabs[i].focus()}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>selectTab(i));t.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();e.stopPropagation();selectTab(e.key==='Home'?0:e.key==='End'?2:(i+(e.key==='ArrowRight'?1:2))%3,true)})});
+const initial=Number(location.hash.slice(2));go(Number.isInteger(initial)&&initial>=1&&initial<=7?initial-1:0,true);sync(false);
+</script></body></html>
