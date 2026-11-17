@@ -94,6 +94,17 @@ code, pre, .diagram svg text { font-family: var(--mono) }
 .slide:has(.auction-facts) .materials{gap:6px}
 .slide:has(.auction-facts) td,.slide:has(.auction-facts) th{padding-block:3px}
 }
+
+.read-views,.routes,.fork { display:grid;grid-template-columns:1fr 1fr;gap:12px }
+.read-views { display:flex;gap:6px;flex-wrap:wrap }
+.read-views button { font-size:14px;background:var(--soft);border:1px solid var(--line);padding:4px 12px }
+.read-views button[aria-pressed="true"] { color:var(--accent);border-color:var(--accent);border-bottom-width:3px }
+#retrieval-source { display:grid;gap:10px }
+#retrieval-flow { font:clamp(16px,1.35vw,22px)/1.4 'Interview OCR B','Microsoft YaHei','Noto Sans CJK SC',sans-serif;color:var(--ink) }
+.flow-node { display:grid;align-content:center;text-align:center;background:var(--soft);border:1px solid #718779;padding:8px 6px;display:block;overflow-wrap:anywhere }
+.flow-node b { display:block;margin-bottom:2px;color:var(--accent) }
+.fork { text-align:center;font:20px/1.05 monospace;color:var(--accent) }
+@media(max-width:600px){.routes,.fork{gap:6px}#retrieval-flow{font-size:16px}}
 </style></head><body><div class="shell">
 
 <main class="start"><div class="terminal"><h1>技术面试</h1><p>第一类 02–05 抽 1 题<br>第二类 06–07 抽 1 题</p><div class="start-actions"><button id="start" type="button">开始抽题</button><button id="warmup" type="button">热身题 01</button></div></div></main>
@@ -253,7 +264,16 @@ code, pre, .diagram svg text { font-family: var(--mono) }
 <span class="vim-line" data-ln="22">    已确认 approved / pending：保存 succeeded</span>
 <span class="vim-line" data-ln="23">    结果不确定：保存 unknown</span></code></pre><figcaption><span class="vim-mode" aria-hidden="true">NORMAL</span><span>P · 核验 / S · 待确认操作 / B · 报名业务</span><span class="vim-ft" aria-hidden="true">pseudo · 23L</span></figcaption></figure></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>关闭小程序前，哪些记录可能已写入？报名业务是否已经提交？</p></li><li><span class="qnum">02</span><p>六分钟后才发送原确认码，沿伪代码说明本次请求的结果。</p></li><li><span class="qnum">03</span><p>及时确认但响应中断，操作已记为 <code>unknown</code>。再次发送相同确认码，后端怎样处理？</p></li></ol><div class="facts"><p><code>pending_operations</code>：等待确认或执行的操作。</p><p><code>registrations</code>：实际报名结果。</p><p><code>scope</code> 绑定学生与窗口。</p><p><code>pending</code> = 报名已提交、待审核；<code>pending_confirmation</code> = 操作待确认。</p><p>活动内容与权限持续有效；幂等键标识同一次逻辑操作。</p></div></aside></div></section><section class="slide retrieval-slide" role="group" aria-roledescription="幻灯片" aria-label="第 4 题，共 7 题" data-title="后台任务如何调用检索算法">
     <header class="slide-heading"><p class="eyebrow">第一类 · 04</p><h2>后台任务如何调用检索算法</h2></header>
-    <div class="slide-body"><div class="materials"><p class="scenario">后台任务从学生可见信息选一条事实，再由模型改写为提示。服务及网络可用；模型选材后正常返回。</p><figure class="code compact vim"><pre><code><span class="vim-line" data-ln="1"><span class="tok-comment">// T1 · 后台任务</span></span>
+    <div class="slide-body"><div class="materials"><p class="scenario">后台任务从学生可见信息选一条事实，再由模型改写为提示。服务及网络可用；模型选材后正常返回。</p><div class="read-views" role="group" aria-label="检索题材料"><button type="button" aria-pressed="true" aria-controls="retrieval-flow">调用流程</button><button type="button" aria-pressed="false" aria-controls="retrieval-source">源码与检索顺序</button></div>
+<div id="retrieval-flow">
+<div class="flow-node"><b>T1 · generate(job)</b>调用 R1 · collect(user, question, proactive)</div>
+<div class="fork"><span aria-hidden="true">↙</span><span aria-hidden="true">↘</span></div>
+<div class="routes"><div class="flow-node"><b>知识来源</b>R2 · knowledge(question)<br>↓<br>K2 · POST 知识接口<br>↓<br>R2 将 HTTP 结果转为来源状态</div><div class="flow-node"><b>其他业务来源</b>并行查询活动、事务等来源<br>各自返回状态与事实</div></div>
+<div class="fork"><span aria-hidden="true">↘</span><span aria-hidden="true">↙</span></div>
+<div class="flow-node"><b>T1 · 汇总来源</b>筛选 hit 且有事实的来源</div>
+<div class="fork"><span aria-hidden="true">↙</span><span aria-hidden="true">↘</span></div>
+<div class="routes"><div class="flow-node"><b>有候选来源</b>选一条事实 → 模型改写 → 保存</div><div class="flow-node"><b>无候选来源</b>保存 no_evidence</div></div>
+</div><div id="retrieval-source" hidden><figure class="code compact vim"><pre><code><span class="vim-line" data-ln="1"><span class="tok-comment">// T1 · 后台任务</span></span>
 <span class="vim-line" data-ln="2"><span class="tok-keyword">const</span> sources = <span class="tok-keyword">await</span> retrieval.collect(job.user_id, <span class="tok-string">&#x27;&#x27;</span>, <span class="tok-keyword">true</span>)</span>
 <span class="vim-line" data-ln="3"><span class="tok-keyword">const</span> selected = choose(</span>
 <span class="vim-line" data-ln="4">  sources.filter(s =&gt; s.status === <span class="tok-string">&#x27;hit&#x27;</span> &amp;&amp; s.facts.length &gt; <span class="tok-number">0</span>))</span>
@@ -267,98 +287,7 @@ code, pre, .diagram svg text { font-family: var(--mono) }
 <span class="vim-line" data-ln="12"><span class="tok-keyword">if</span> !response.ok: <span class="tok-keyword">return</span> {source:<span class="tok-string">&quot;knowledge&quot;</span>, status:<span class="tok-string">&quot;unavailable&quot;</span>, facts:[]}</span>
 <span class="vim-line" data-ln="13"><span class="tok-comment">// 有效结果 → hit；正常无匹配 → no_match</span></span>
 <span class="vim-line" data-ln="14"><span class="tok-comment">// K2 · 接口入口；检索之前</span></span>
-<span class="vim-line" data-ln="15"><span class="tok-keyword">if</span> (!q) <span class="tok-keyword">return</span> res.status(<span class="tok-number">400</span>).json({code:<span class="tok-number">400</span>, message:<span class="tok-string">&#x27;问题不能为空&#x27;</span>})</span></code></pre><figcaption><span class="vim-mode" aria-hidden="true">NORMAL</span><span>T1 / K2 · JavaScript；R1 / R2 · 伪代码</span><span class="vim-ft" aria-hidden="true">mixed · 15L</span></figcaption></figure><table><thead><tr><th scope="col">顺序</th><th scope="col">非空问句的检索路径</th></tr></thead><tbody><tr><td>1</td><td>FAQ 标题精确匹配：命中即返回</td></tr><tr><td>2</td><td>FAQ 模糊匹配：满足相似度及候选差距即返回</td></tr><tr><td>3</td><td>概念树：规则匹配且片段有效即返回</td></tr><tr><td>4</td><td>向量 + 关键词：合并、去重、排序、可靠性判断</td></tr></tbody></table><p class="material-note">FAQ：人工问答；切片：文档短段；概念树：关键词→文档位置。向量服务不可用时仍可尝试关键词。</p></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>从 <code>generate(job)</code> 写出知识查询调用链，并解释 T1 的三个实参。</p></li><li><span class="qnum">02</span><p>说明非空问句的检索顺序与提前返回条件。</p></li><li><span class="qnum">03</span><p>空问句触发哪个接口分支？R2 将它转为什么来源状态？</p></li><li><span class="qnum">04</span><p>知识不可用，但活动来源 <code>hit</code> 且有事实时，T1 如何继续？模型负责什么？</p></li></ol><div class="facts"><p><code>collect(user, question, proactive)</code></p><p><code>true</code>：知识、活动、事务、生活、课程、就业；不查询积分。来源独立汇总。</p><p><code>choose</code>：非空集合选一项，空集合返回 null。</p></div><figure class="diagram"><svg
- viewBox="0.00 0.00 337.78 369.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="后台任务从知识和其他业务来源选择事实后交给模型改写">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(8.64 360.64)">
-<title>G</title>
-
-<g id="node1" class="node">
-<title>t</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M242.5,-352C242.5,-352 120.5,-352 120.5,-352 114.5,-352 108.5,-346 108.5,-340 108.5,-340 108.5,-328 108.5,-328 108.5,-322 114.5,-316 120.5,-316 120.5,-316 242.5,-316 242.5,-316 248.5,-316 254.5,-322 254.5,-328 254.5,-328 254.5,-340 254.5,-340 254.5,-346 248.5,-352 242.5,-352"/>
-<text text-anchor="middle" x="181.5" y="-330.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">T1 · generate(job)</text>
-</g>
-
-<g id="node2" class="node">
-<title>c</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M304,-291C304,-291 59,-291 59,-291 53,-291 47,-285 47,-279 47,-279 47,-267 47,-267 47,-261 53,-255 59,-255 59,-255 304,-255 304,-255 310,-255 316,-261 316,-267 316,-267 316,-279 316,-279 316,-285 310,-291 304,-291"/>
-<text text-anchor="middle" x="181.5" y="-269.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">R1 · collect(user, question, proactive)</text>
-</g>
-
-<g id="edge1" class="edge">
-<title>t&#45;&gt;c</title>
-<path fill="none" stroke="#6a8a7e" d="M181.5,-315.93C181.5,-310.36 181.5,-304.05 181.5,-298.06"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="183.78,-297.73 181.5,-291.23 179.23,-297.73 183.78,-297.73"/>
-</g>
-
-<g id="node3" class="node">
-<title>k</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M183,-230C183,-230 12,-230 12,-230 6,-230 0,-224 0,-218 0,-218 0,-206 0,-206 0,-200 6,-194 12,-194 12,-194 183,-194 183,-194 189,-194 195,-200 195,-206 195,-206 195,-218 195,-218 195,-224 189,-230 183,-230"/>
-<text text-anchor="middle" x="97.5" y="-208.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">R2 · knowledge(question)</text>
-</g>
-
-<g id="edge2" class="edge">
-<title>c&#45;&gt;k</title>
-<path fill="none" stroke="#6a8a7e" d="M157.2,-254.93C147.8,-248.33 136.95,-240.71 127.1,-233.79"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="128.37,-231.9 121.74,-230.03 125.75,-235.62 128.37,-231.9"/>
-</g>
-
-<g id="node4" class="node">
-<title>b</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M308.5,-230C308.5,-230 224.5,-230 224.5,-230 218.5,-230 212.5,-224 212.5,-218 212.5,-218 212.5,-206 212.5,-206 212.5,-200 218.5,-194 224.5,-194 224.5,-194 308.5,-194 308.5,-194 314.5,-194 320.5,-200 320.5,-206 320.5,-206 320.5,-218 320.5,-218 320.5,-224 314.5,-230 308.5,-230"/>
-<text text-anchor="middle" x="266.5" y="-208.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">其他业务来源</text>
-</g>
-
-<g id="edge3" class="edge">
-<title>c&#45;&gt;b</title>
-<path fill="none" stroke="#6a8a7e" d="M206.09,-254.93C215.6,-248.33 226.58,-240.71 236.55,-233.79"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="237.93,-235.6 241.97,-230.03 235.33,-231.86 237.93,-235.6"/>
-</g>
-
-<g id="node5" class="node">
-<title>h</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M187,-169C187,-169 56,-169 56,-169 50,-169 44,-163 44,-157 44,-157 44,-145 44,-145 44,-139 50,-133 56,-133 56,-133 187,-133 187,-133 193,-133 199,-139 199,-145 199,-145 199,-157 199,-157 199,-163 193,-169 187,-169"/>
-<text text-anchor="middle" x="121.5" y="-147.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">K2 · POST 知识接口</text>
-</g>
-
-<g id="edge4" class="edge">
-<title>k&#45;&gt;h</title>
-<path fill="none" stroke="#6a8a7e" d="M104.44,-193.93C106.81,-188.12 109.5,-181.51 112.03,-175.28"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="114.15,-176.11 114.49,-169.23 109.93,-174.39 114.15,-176.11"/>
-</g>
-
-<g id="node6" class="node">
-<title>s</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M291.5,-97C291.5,-97 119.5,-97 119.5,-97 113.5,-97 107.5,-91 107.5,-85 107.5,-85 107.5,-73 107.5,-73 107.5,-67 113.5,-61 119.5,-61 119.5,-61 291.5,-61 291.5,-61 297.5,-61 303.5,-67 303.5,-73 303.5,-73 303.5,-85 303.5,-85 303.5,-91 297.5,-97 291.5,-97"/>
-<text text-anchor="middle" x="205.5" y="-75.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">T1 · 选择有事实的 hit 来源</text>
-</g>
-
-<g id="edge6" class="edge">
-<title>b&#45;&gt;s</title>
-<path fill="none" stroke="#6a8a7e" d="M267.4,-193.64C267.68,-172.07 265.35,-134.94 248.5,-109 246.75,-106.31 244.66,-103.81 242.35,-101.49"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="243.7,-99.65 237.35,-97 240.66,-103.04 243.7,-99.65"/>
-</g>
-
-<g id="edge5" class="edge">
-<title>h&#45;&gt;s</title>
-<path fill="none" stroke="#6a8a7e" d="M135.27,-132.61C141.85,-124.89 150.1,-116 158.5,-109 161.87,-106.2 165.53,-103.47 169.27,-100.88"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="170.65,-102.7 174.79,-97.2 168.12,-98.91 170.65,-102.7"/>
-<text text-anchor="middle" x="203.5" y="-112.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#506b60">HTTP → 来源状态</text>
-</g>
-
-<g id="node7" class="node">
-<title>m</title>
-<path fill="#f1f6f4" stroke="#b9ccc5" stroke-width="1.1" d="M296.5,-36C296.5,-36 114.5,-36 114.5,-36 108.5,-36 102.5,-30 102.5,-24 102.5,-24 102.5,-12 102.5,-12 102.5,-6 108.5,0 114.5,0 114.5,0 296.5,0 296.5,0 302.5,0 308.5,-6 308.5,-12 308.5,-12 308.5,-24 308.5,-24 308.5,-30 302.5,-36 296.5,-36"/>
-<text text-anchor="middle" x="205.5" y="-14.3" font-family="Noto Sans CJK SC" font-size="14.00" fill="#163e33">选择事实 → 模型改写 → 保存</text>
-</g>
-
-<g id="edge7" class="edge">
-<title>s&#45;&gt;m</title>
-<path fill="none" stroke="#6a8a7e" d="M205.5,-60.93C205.5,-55.36 205.5,-49.05 205.5,-43.06"/>
-<polygon fill="#6a8a7e" stroke="#6a8a7e" points="207.78,-42.73 205.5,-36.23 203.23,-42.73 207.78,-42.73"/>
-</g>
-</g>
-</svg>
-</figure></aside></div></section><section class="slide isolation-slide" role="group" aria-roledescription="幻灯片" aria-label="第 5 题，共 7 题" data-title="用户隔离架构与四类隔离">
+<span class="vim-line" data-ln="15"><span class="tok-keyword">if</span> (!q) <span class="tok-keyword">return</span> res.status(<span class="tok-number">400</span>).json({code:<span class="tok-number">400</span>, message:<span class="tok-string">&#x27;问题不能为空&#x27;</span>})</span></code></pre><figcaption><span class="vim-mode" aria-hidden="true">NORMAL</span><span>T1 / K2 · JavaScript；R1 / R2 · 伪代码</span><span class="vim-ft" aria-hidden="true">mixed · 15L</span></figcaption></figure><table><thead><tr><th scope="col">顺序</th><th scope="col">非空问句的检索路径</th></tr></thead><tbody><tr><td>1</td><td>FAQ 标题精确匹配：命中即返回</td></tr><tr><td>2</td><td>FAQ 模糊匹配：满足相似度及候选差距即返回</td></tr><tr><td>3</td><td>概念树：规则匹配且片段有效即返回</td></tr><tr><td>4</td><td>向量 + 关键词：合并、去重、排序、可靠性判断</td></tr></tbody></table><p class="material-note">FAQ：人工问答；切片：文档短段；概念树：关键词→文档位置。向量服务不可用时仍可尝试关键词。</p></div></div><aside class="ask"><ol class="questions"><li><span class="qnum">01</span><p>从 <code>generate(job)</code> 写出知识查询调用链，并解释 T1 的三个实参。</p></li><li><span class="qnum">02</span><p>说明非空问句的检索顺序与提前返回条件。</p></li><li><span class="qnum">03</span><p>空问句触发哪个接口分支？R2 将它转为什么来源状态？</p></li><li><span class="qnum">04</span><p>知识不可用，但活动来源 <code>hit</code> 且有事实时，T1 如何继续？模型负责什么？</p></li></ol><div class="facts"><p><code>collect(user, question, proactive)</code></p><p><code>true</code>：知识、活动、事务、生活、课程、就业；不查询积分。来源独立汇总。</p><p><code>choose</code>：非空集合选一项，空集合返回 null。</p></div></aside></div></section><section class="slide isolation-slide" role="group" aria-roledescription="幻灯片" aria-label="第 5 题，共 7 题" data-title="用户隔离架构与四类隔离">
     <header class="slide-heading"><p class="eyebrow">第一类 · 05</p><h2>用户隔离架构与四类隔离</h2></header>
     <div class="slide-body"><div class="materials"><p class="scenario">学生与管理员共用后端和数据库。只分析下列路径。</p><div class="code-grid"><figure class="code compact vim"><pre><code><span class="vim-line" data-ln="1">claims, err := ValidateToken(token, verificationKey)</span>
 <span class="vim-line" data-ln="2"><span class="tok-keyword">if</span> err == <span class="tok-keyword">nil</span> {</span>
@@ -722,6 +651,16 @@ code, pre, .diagram svg text { font-family: var(--mono) }
 </figure><p class="material-note">身份已验证且已授权；单 Redis 主节点。计数与过期原子；encodeTuple 无歧义；compareAndDelete 原子验主；I/O 有总截止；DB 闸门有限等待；未获租约最多等缓存 300ms，不绕过查库。写操作仍受事务与幂等保护。</p></aside></div></section></main>
 <footer class="footer" hidden><button type="button" id="home">← 返回首页</button><div class="footer-tools"><button type="button" id="fullscreen" class="fullscreen" aria-label="全屏" aria-pressed="false" title="全屏 · F">⛶</button><div class="nav-controls"><span class="count">01 / 07</span><button type="button" id="previous" aria-label="上一题" title="上一题 · ←">←</button><button type="button" id="next" aria-label="下一题" title="下一题 · →">→</button></div></div></footer>
 <p class="sr-only" role="status" id="status" aria-live="polite"></p></div><script type="module">
+const viewButtons = Array.from(document.querySelectorAll('.read-views button'));
+for (const button of viewButtons) {
+  button.addEventListener('click', () => {
+    for (const choice of viewButtons) {
+      const active = choice === button;
+      choice.setAttribute('aria-pressed', String(active));
+      document.getElementById(choice.getAttribute('aria-controls')).hidden = !active;
+    }
+  });
+}
 const home = document.querySelector('.start');
 const track = document.querySelector('.track');
 const footer = document.querySelector('.footer');
