@@ -18,6 +18,7 @@ A public home for interactive presentations, with each deck published under its 
 | --- | --- | --- |
 | **People & Organisations · Topic 4** | Servant vs traditional leadership | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) |
 | **US Airlines · Economy** | Short-run costs, price elasticity and oligopoly | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) |
+| **SILCAI · Product Sandbox** | Interactive mobile homepage editor with simulated data | [Open showcase](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/) |
 
 ### People & Organisations
 
