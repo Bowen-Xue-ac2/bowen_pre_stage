@@ -1,24 +1,24 @@
 <div align="center">
 
-# Bowen PRE Stage
+# Bowen PRE Stage 😊 🤝
 
-**Browser-first presentations. One stage, distinct projects.**
+**Bowen’s browser-first stage for interactive presentations and product showcases.**
 
-[Open US Airlines · Economy](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) · [Open People & Organisations](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) · [Open SILCAI Sandbox](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/) · [Presentation catalogue](#presentations) · [Local preview](#local-preview) · [Credits](#credits-and-licensing)
+[US Airlines](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) · [People & Organisations](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) · [SILCAI Sandbox](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/)
+
+[Showcases](#showcases) · [Quick start](#quick-start) · [Build and publish](#build-and-publish) · [Contributing](#contributing) · [Credits](#credits-and-licensing)
 
 </div>
 
----
+## Showcases
 
-A public home for interactive presentations and product showcases, each published under its own URL. This repository hosts the **built website**, separate from the presentation authoring workspace.
+This is the public distribution repository for the built sites. Editable authoring projects live separately.
 
-## Presentations
-
-| Presentation | Focus | Open |
+| Project | What you can explore | Open |
 | --- | --- | --- |
-| **People & Organisations · Topic 4** | Servant vs traditional leadership | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) |
-| **US Airlines · Economy** | Short-run costs, price elasticity and oligopoly | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) |
-| **SILCAI · Product Sandbox** | Interactive mobile homepage editor with simulated data | [Open showcase](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/) |
+| **People & Organisations · Topic 4** | Servant vs traditional leadership, told with animated visuals and staged reveals | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) |
+| **US Airlines · Economy** | Fuel costs, price elasticity, and how airlines respond to rivals | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) |
+| **SILCAI · Product Sandbox** | Rearrange a simulated mobile homepage and try a proposed feature | [Open showcase](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/) |
 
 ### SILCAI · Product Sandbox
 
@@ -28,7 +28,7 @@ A public home for interactive presentations and product showcases, each publishe
 
 **Planned, not yet live:** Create reusable custom blocks, save blocks from the phone back to the library, remove individual blocks from the page, and resize or position blocks freely without forced grid alignment.
 
-The showcase is built with Vue 3, TypeScript, Vite, and [Vue.Draggable](https://github.com/SortableJS/vue.draggable.next). Rebuild from the authoring source and publish only the static output to `silcai-sandbox/`. Keep private source, assets, configuration, and student data out of the public repository.
+Built with Vue 3, TypeScript, Vite, and [Vue.Draggable](https://github.com/SortableJS/vue.draggable.next).
 
 ### People & Organisations
 
@@ -63,30 +63,37 @@ A 17-slide microeconomics case study of US airline fares, fuel costs, passenger 
 | 15 | Conclusion |
 | 16–17 | References and list of figures |
 
-#### Source-document coverage review
+**Evidence and limits.** Passenger revenue is not profit. Premium sales and passenger mix can lift revenue alongside fares; parallel pricing alone does not establish collusion. The [source-document audit](https://github.com/Bowen-Xue-ac2/bowen_pre_stage/blob/cdd90858ca4e831083b245575d1959a0f9fc2f80/README.md#source-document-coverage-review) preserves the earlier 20-slide review. Use the slide map above for the current build.
 
-Rechecked on **18 November 2026** against the **20-slide build at [`9a38286`](https://github.com/Bowen-Xue-ac2/bowen_pre_stage/commit/9a38286)** by inspecting all 20 published slide modules. The four supplied documents, including their embedded figures, were read in the earlier review. **The main gaps identified in the 15-slide build are now addressed.** Coverage means that the substantive teaching points are represented, not that every sentence or original screenshot is reproduced.
+## Quick start
 
-| Supplied section | Coverage in current deck | Remaining distinctions |
-| --- | --- | --- |
-| PED | [8–9](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/8): explicit PED/TR formulas and inelastic range; United's −1.3 pp load factor; occupancy depends on available seats and cannot identify PED without paired fare/volume data; premium-mix caveat. [19](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/19) adds OpenStax §§5.1 and 5.3. | The chart and figures are illustrative, not a numerical estimate of observed airline PED. The label “pp” is used, but percentage points versus percentage changes is not separately explained in prose. |
-| Short-run costs | [6–7](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/6) and [18](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/18): short-run/FC/VC definitions; TC, MC, ATC, AVC and AFC formulas; MC/ATC-minimum diagram; contracts, hedges, fleet efficiency, labour and maintenance caveats. | Original schematics replace the source screenshots. The fuel-price rise is not converted into an unsupported equal percentage increase in total cost; the exact total-cost effect is not quantified. |
-| Oligopoly | [10–13](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/10): definition, differentiation and entry barriers; four-market-structure comparison; rival responses, kinked demand, capacity and downturn risk; an illustrative payoff matrix. [16](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/16) qualifies inference about intent and coordination. | The game uses newly constructed, explicitly illustrative capacity payoffs rather than reproducing the supplied example. Legal scrutiny is mentioned, but there is no separate antitrust-law explanation or formal price-leadership model. These are narrower than the source, not missing core interdependence analysis. |
-| Section E: stakeholders and evaluation | [14–16](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/14): United/rival trade-off, conditional staffing effects, rail/road substitutes, long-route limits, frequency/secondary-airport access, three trade-offs and four limits, including hedges, fleet renewal, endogenous energy prices and the counterfactual. Context remains on 4–5. | Employee and access effects are presented as conditional, not observed outcomes. Welfare losses are not quantified. The source's illustrative fare-times-traffic arithmetic is replaced by a scope/period mismatch warning rather than treated as a valid identity. |
+To browse the published builds locally, use Git and Python 3. No Node build is needed:
 
-**Remaining review tasks:**
+```sh
+git clone https://github.com/Bowen-Xue-ac2/bowen_pre_stage.git
+# Run this from the parent of bowen_pre_stage/
+python3 -m http.server 8000 --bind 127.0.0.1
+```
 
-1. Update the separate speaker scripts to the current 20-slide map, especially Section E on **14–16**, the cost exhibit on **18**, and references on **19**. This README update does not modify those documents.
-2. If the assessment requires the exact original game, screenshots, explicit antitrust terminology or a percentage-point explanation, confirm those requirements before treating the concise substitutions as equivalent.
-3. Check presentation timing and visual readability in rehearsal. This content audit is not a fresh rendered-layout or timing check, nor independent verification of every underlying news claim.
+Then open:
 
-Keep the qualifications in the revised slides: revenue is not profit; premium mix means revenue growth is not necessarily all fare increases; parallel pricing does not establish collusion. Stronger claims in the source drafts about protected margins or proven coordination are intentionally not adopted.
+```text
+http://localhost:8000/bowen_pre_stage/ppl-org/
+http://localhost:8000/bowen_pre_stage/economy-pre/
+http://localhost:8000/bowen_pre_stage/silcai-sandbox/
+```
 
-**Historical note:** the [earlier audit at `2078bc6`](https://github.com/Bowen-Xue-ac2/bowen_pre_stage/blob/2078bc69932f134a7d1069111dabb24510fa3338/README.md#source-document-coverage-review) described the **15-slide `27892df` build**. Its missing-item list is superseded by the table above and must not be read as the current status.
+On Windows, use `py -m http.server 8000 --bind 127.0.0.1` if `python3` is unavailable. Serve over HTTP rather than opening `index.html` directly so each project's static assets load correctly.
 
-This follow-up changes documentation only. It does not change the deck or publish the supplied documents.
+## Build and publish
 
-## Technology
+1. Make changes in the editable authoring project, not in the generated JavaScript.
+2. Build for the matching GitHub Pages project path and replace only that project’s published folder.
+3. Verify the page and its assets at the deployed URL. For interactive projects, also test the main flow.
+
+Everything shipped here is public, including client-side presenter notes. Keep credentials, private source or assets, and real student data out of the builds.
+
+### Technology
 
 | Layer | Responsibility |
 | --- | --- |
@@ -97,18 +104,19 @@ This follow-up changes documentation only. It does not change the deck or publis
 | [Lucide](https://github.com/lucide-icons/lucide) | Interface icons |
 | GitHub Pages | Static hosting under project-specific subpaths |
 
-## Repository layout
+### Repository layout
 
 ```text
 bowen_pre_stage/
 ├── README.md
+├── DCO
 ├── .nojekyll
 ├── economy-pre/
 │   ├── index.html          # US Airlines presentation entry
 │   ├── assets/             # Compiled application
 │   └── sources.html        # Source notes
 ├── interview/              # Separate published project
-├── silcai-sandbox/        # Compiled mobile product showcase
+├── silcai-sandbox/         # Compiled mobile product showcase
 └── ppl-org/
     ├── index.html          # Presentation entry
     ├── assets/             # Compiled application
@@ -119,36 +127,19 @@ bowen_pre_stage/
     └── DEPLOYMENT.md       # Routes and publishing instructions
 ```
 
-## Local preview
+## Contributing
 
-No Node build step is required to preview the published files. With Git and Python 3 installed:
+Open an issue for a proposal or submit a focused PR. Name the affected showcase, describe the change, and include a preview or what you tested.
+
+### DCO sign-off
+
+Read the [Developer Certificate of Origin 1.1](DCO) and sign off each of your own contributions if you can make that certification:
 
 ```sh
-git clone https://github.com/Bowen-Xue-ac2/bowen_pre_stage.git
-python3 -m http.server 8000 --bind 127.0.0.1
+git commit --signoff -m "Describe the change"
 ```
 
-Run the server from the directory **containing** the cloned repository, then open:
-
-```text
-http://localhost:8000/bowen_pre_stage/ppl-org/
-http://localhost:8000/bowen_pre_stage/economy-pre/
-http://localhost:8000/bowen_pre_stage/silcai-sandbox/
-```
-
-On Windows, use `py -m http.server 8000 --bind 127.0.0.1` if `python3` is unavailable. Serve over HTTP rather than opening `index.html` directly so each project's static assets load correctly.
-
-## Publishing model
-
-Each presentation lives in its own directory. To update a deck, build it in its authoring project with the matching base path, then publish the generated files into that directory. Keep other presentation directories and the root README intact.
-
-This repository is a distribution stage, not the complete Slidev source project. Do not edit generated JavaScript bundles as a substitute for updating the source.
-
-## Public content and notes
-
-The repository and presentation are public. **Presenter notes are part of the published client-side content**, including the Chinese notes in this deck. Presenter mode is a viewing mode, not an access-control boundary.
-
-Do not include credentials, private meeting notes or material that should remain restricted.
+Git adds a `Signed-off-by:` trailer from your configured name and email. This certifies your right to submit the contribution; it is not a cryptographic signature and does not substitute for a license. Your sign-off is part of the public commit history. Do not sign off on someone else’s behalf.
 
 ## Credits and licensing
 
