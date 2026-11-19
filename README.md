@@ -4,13 +4,13 @@
 
 **Browser-first presentations. One stage, distinct projects.**
 
-[Open US Airlines · Economy](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) · [Open People & Organisations](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) · [Presentation catalogue](#presentations) · [Local preview](#local-preview) · [Credits](#credits-and-licensing)
+[Open US Airlines · Economy](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) · [Open People & Organisations](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) · [Open SILCAI Sandbox](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/) · [Presentation catalogue](#presentations) · [Local preview](#local-preview) · [Credits](#credits-and-licensing)
 
 </div>
 
 ---
 
-A public home for interactive presentations, with each deck published under its own URL. This repository hosts the **built website**, separate from the presentation authoring workspace.
+A public home for interactive presentations and product showcases, each published under its own URL. This repository hosts the **built website**, separate from the presentation authoring workspace.
 
 ## Presentations
 
@@ -19,6 +19,16 @@ A public home for interactive presentations, with each deck published under its 
 | **People & Organisations · Topic 4** | Servant vs traditional leadership | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) |
 | **US Airlines · Economy** | Short-run costs, price elasticity and oligopoly | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) |
 | **SILCAI · Product Sandbox** | Interactive mobile homepage editor with simulated data | [Open showcase](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/) |
+
+### SILCAI · Product Sandbox
+
+[Open the showcase](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/). This is an interactive prototype of the SILCAI mobile homepage for product discussions. It uses simulated data and does not connect to the live mini program.
+
+**Try the current version:** Select **Edit** (编辑), drag the homepage blocks to reorder them, or add **This Week’s To-dos** (本周待办) from the block library. Switch to **Preview** (预览) to open its details and return. Changes stay in this browser across refreshes. **Restore original** (恢复原版) resets the layout. Chat, History, and Profile are placeholders.
+
+**Planned, not yet live:** Create reusable custom blocks, save blocks from the phone back to the library, remove individual blocks from the page, and resize or position blocks freely without forced grid alignment.
+
+The showcase is built with Vue 3, TypeScript, Vite, and [Vue.Draggable](https://github.com/SortableJS/vue.draggable.next). Rebuild from the authoring source and publish only the static output to `silcai-sandbox/`. Keep private source, assets, configuration, and student data out of the public repository.
 
 ### People & Organisations
 
@@ -98,6 +108,7 @@ bowen_pre_stage/
 │   ├── assets/             # Compiled application
 │   └── sources.html        # Source notes
 ├── interview/              # Separate published project
+├── silcai-sandbox/        # Compiled mobile product showcase
 └── ppl-org/
     ├── index.html          # Presentation entry
     ├── assets/             # Compiled application
@@ -122,9 +133,10 @@ Run the server from the directory **containing** the cloned repository, then ope
 ```text
 http://localhost:8000/bowen_pre_stage/ppl-org/
 http://localhost:8000/bowen_pre_stage/economy-pre/
+http://localhost:8000/bowen_pre_stage/silcai-sandbox/
 ```
 
-On Windows, use `py -m http.server 8000 --bind 127.0.0.1` if `python3` is unavailable. Serve over HTTP rather than opening `index.html` directly: each build uses its matching `/bowen_pre_stage/<project>/` asset base.
+On Windows, use `py -m http.server 8000 --bind 127.0.0.1` if `python3` is unavailable. Serve over HTTP rather than opening `index.html` directly so each project's static assets load correctly.
 
 ## Publishing model
 
