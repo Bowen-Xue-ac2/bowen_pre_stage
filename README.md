@@ -55,7 +55,7 @@ A 17-slide microeconomics case study of US airline fares, fuel costs, passenger 
 | Slides | Content |
 | --- | --- |
 | 1 | Welcome |
-| 2–4 | Opening judgment with a Reuters excerpt and the first question on click 2, Reuters news background and evidence windows, financial results |
+| 2–4 | Opening judgment with a Reuters excerpt on click 1 and three questions on clicks 2–4, Reuters news background and evidence windows, financial results |
 | 5–6 | Section E: reported stakeholder outcomes and conditional impacts |
 | 7–8 | Short-run costs, including marginal and average total cost |
 | 9–10 | PED mechanism and limits of case evidence |
