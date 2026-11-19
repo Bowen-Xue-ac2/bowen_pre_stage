@@ -33,7 +33,7 @@ This is a working presentation, not a claim that academic review or classroom re
 
 ### US Airlines · Economy
 
-A 20-slide microeconomics case study of US airline fares, fuel costs, passenger revenue and capacity. The core distinction is **revenue is not profit**: higher fares and premium sales can raise revenue while fuel costs squeeze margins.
+A 16-slide microeconomics case study of US airline fares, fuel costs, passenger revenue and capacity. The core distinction is **revenue is not profit**: higher fares and premium sales can raise revenue while fuel costs squeeze margins.
 
 - [Open the deck](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1)
 - [Source notes](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/sources.html)
@@ -43,15 +43,13 @@ A 20-slide microeconomics case study of US airline fares, fuel costs, passenger 
 
 | Slides | Content |
 | --- | --- |
-| 1–3 | Executive summary, industry data and revenue versus profit |
-| 4–5 | Stakeholders: airlines, passengers and fuel suppliers |
-| 6–7 | Short-run costs, marginal cost and average-cost relationships |
-| 8–9 | Price elasticity of demand and limits of the available evidence |
-| 10–11 | Route-level oligopoly and the kinked-demand model |
-| 12–13 | Capacity outlook and illustrative strategic game |
-| 14–16 | Section E: carriers and rivals, passengers, trade-offs and limits |
-| 17–18 | Conclusion and short-run cost exhibit |
-| 19–20 | References and list of figures |
+| 1–3 | Opening judgment, Reuters news background and evidence windows, financial results |
+| 4–5 | Section E: reported stakeholder outcomes and conditional impacts |
+| 6–7 | Short-run costs, including marginal and average total cost |
+| 8–9 | PED mechanism and limits of case evidence |
+| 10–13 | Oligopoly, limits of kinked demand, scheduled capacity and illustrative game |
+| 14 | Conclusion |
+| 15–16 | References and list of figures |
 
 #### Source-document coverage review
 
