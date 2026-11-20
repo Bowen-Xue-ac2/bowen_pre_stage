@@ -56,11 +56,12 @@ A 17-slide microeconomics case study of US airline fares, fuel costs, passenger 
 | --- | --- |
 | 1 | Welcome |
 | 2 | Reuters case. Click once for United’s leisure load factor and again for Andrew Nocella’s response. |
-| 3 | Five-carrier passenger economics. One click reveals the full-year and Q4 forecasts. |
-| 4–5 | Stakeholders and conditional impacts |
-| 6–7 | Concept 1: Short-Run Cost — marginal and average total cost |
-| 8–9 | Concept 2: Price Elasticity of Demand — mechanism and limits of case evidence |
-| 10–13 | Concept 3: Oligopoly — limits of kinked demand, scheduled capacity and illustrative game |
+| 3 | Five-carrier passenger economics with fuel and CPI context |
+| 4 | Earnings outlook. Click once to reveal five-carrier Q4 and full-year guidance. |
+| 5–6 | Stakeholders and conditional impacts |
+| 7–8 | Concept 1: Short-Run Cost — marginal and average total cost |
+| 9–10 | Concept 2: Price Elasticity of Demand — mechanism and limits of case evidence |
+| 11–13 | Concept 3: Oligopoly — interdependence, kinked demand and capacity choices |
 | 14 | Conclusion |
 | 15–16 | References |
 | 17 | List of figures |
