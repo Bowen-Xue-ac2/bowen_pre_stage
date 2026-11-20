@@ -57,9 +57,9 @@ A 17-slide microeconomics case study of US airline fares, fuel costs, passenger 
 | 1 | Welcome |
 | 2–4 | Opening judgment with a Reuters excerpt on click 1 and three questions on clicks 2–4, Reuters news background and evidence windows, financial results |
 | 5–6 | Section E: reported stakeholder outcomes and conditional impacts |
-| 7–8 | Short-run costs, including marginal and average total cost |
-| 9–10 | PED mechanism and limits of case evidence |
-| 11–14 | Oligopoly, limits of kinked demand, scheduled capacity and illustrative game |
+| 7–8 | Concept 1: Short-Run Cost — marginal and average total cost |
+| 9–10 | Concept 2: Price Elasticity of Demand — mechanism and limits of case evidence |
+| 11–14 | Concept 3: Oligopoly — limits of kinked demand, scheduled capacity and illustrative game |
 | 15 | Conclusion |
 | 16–17 | References and list of figures |
 
