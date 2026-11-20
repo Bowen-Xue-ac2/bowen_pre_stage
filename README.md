@@ -44,7 +44,7 @@ This is a working presentation, not a claim that academic review or classroom re
 
 ### US Airlines · Economy
 
-A 18-slide microeconomics case study of US airline fares, fuel costs, passenger revenue and capacity. The core distinction is **revenue is not profit**: higher fares and premium sales can raise revenue while fuel costs squeeze margins.
+A 17-slide microeconomics case study of US airline fares, fuel costs, passenger revenue and capacity. The core distinction is **revenue is not profit**: higher fares and premium sales can raise revenue while fuel costs squeeze margins.
 
 - [Open the deck](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1)
 - [Source notes](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/sources.html)
@@ -55,14 +55,15 @@ A 18-slide microeconomics case study of US airline fares, fuel costs, passenger 
 | Slides | Content |
 | --- | --- |
 | 1 | Welcome |
-| 2–4 | Opening judgment with a Reuters excerpt on click 1 and three questions on clicks 2–4, Reuters news background and evidence windows, financial results |
-| 5–6 | Section E: reported stakeholder outcomes and conditional impacts |
-| 7–8 | Concept 1: Short-Run Cost — marginal and average total cost |
-| 9–10 | Concept 2: Price Elasticity of Demand — mechanism and limits of case evidence |
-| 11–14 | Concept 3: Oligopoly — limits of kinked demand, scheduled capacity and illustrative game |
-| 15 | Conclusion |
-| 16–17 | References |
-| 18 | List of figures |
+| 2 | Reuters case. Click once for United’s leisure load factor and again for Andrew Nocella’s response. |
+| 3 | Five-carrier passenger economics. One click reveals the full-year and Q4 forecasts. |
+| 4–5 | Stakeholders and conditional impacts |
+| 6–7 | Concept 1: Short-Run Cost — marginal and average total cost |
+| 8–9 | Concept 2: Price Elasticity of Demand — mechanism and limits of case evidence |
+| 10–13 | Concept 3: Oligopoly — limits of kinked demand, scheduled capacity and illustrative game |
+| 14 | Conclusion |
+| 15–16 | References |
+| 17 | List of figures |
 
 **Evidence and limits.** Passenger revenue is not profit. Premium sales and passenger mix can lift revenue alongside fares; parallel pricing alone does not establish collusion. The [source-document audit](https://github.com/Bowen-Xue-ac2/bowen_pre_stage/blob/cdd90858ca4e831083b245575d1959a0f9fc2f80/README.md#source-document-coverage-review) preserves the earlier 20-slide review. Use the slide map above for the current build.
 
