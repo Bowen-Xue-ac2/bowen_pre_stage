@@ -44,7 +44,7 @@ This is a working presentation, not a claim that academic review or classroom re
 
 ### US Airlines · Economy
 
-A 17-slide microeconomics case study of US airline fares, fuel costs, passenger revenue and capacity. The core distinction is **revenue is not profit**: higher fares and premium sales can raise revenue while fuel costs squeeze margins.
+A 18-slide microeconomics case study of US airline fares, fuel costs, passenger revenue and capacity. The core distinction is **revenue is not profit**: higher fares and premium sales can raise revenue while fuel costs squeeze margins.
 
 - [Open the deck](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1)
 - [Source notes](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/sources.html)
@@ -61,7 +61,8 @@ A 17-slide microeconomics case study of US airline fares, fuel costs, passenger 
 | 9–10 | Concept 2: Price Elasticity of Demand — mechanism and limits of case evidence |
 | 11–14 | Concept 3: Oligopoly — limits of kinked demand, scheduled capacity and illustrative game |
 | 15 | Conclusion |
-| 16–17 | References and list of figures |
+| 16–17 | References |
+| 18 | List of figures |
 
 **Evidence and limits.** Passenger revenue is not profit. Premium sales and passenger mix can lift revenue alongside fares; parallel pricing alone does not establish collusion. The [source-document audit](https://github.com/Bowen-Xue-ac2/bowen_pre_stage/blob/cdd90858ca4e831083b245575d1959a0f9fc2f80/README.md#source-document-coverage-review) preserves the earlier 20-slide review. Use the slide map above for the current build.
 
