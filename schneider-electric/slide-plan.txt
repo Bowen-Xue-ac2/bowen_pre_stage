@@ -1,64 +1,18 @@
-SCHNEIDER ELECTRIC — 12-SLIDE LAYOUT PLAN
+施耐德电气 | 12 页讲述提纲
+全场问题：施耐德采取行动后，谁的处境发生了什么可验证的变化？
+分工：成员一 1–3 页；成员二 4–5 页；成员三 6–7 页；成员四 8–9 页；成员五 10–12 页。每人约三分钟。以下是组内讲述说明，投影文字用 [empty] 占位。
 
-Art direction
-Use Citi at the presentation level: white canvas, generous margins, blue headlines and data marks, grey rules, Arial typography, and a restrained cover arc. Individual layouts follow their subject: a stakeholder map, a change pathway, a progress bar or a comparison chart.
+01 / 开场。一个家庭今天第一次用上电，一年后还能稳定用电、承担电费吗？用这一问引出整场评价；简述五人路线。
+02 / 使命和立场。从官方使命中的可持续与效率提出小组判断：施耐德已展示覆盖和部分可测成果；长期效益要看受影响一方的前后变化。点击揭示判断。
+03 / 三项影响目标。视觉并列社会、经济、环境三项目标。分别问家庭能否持续负担、工厂能否用更少能源生产、运营和价值链排放是否下降。先用工厂检验，因为它有明确的产出分母。
+04 / 工业客户案例。比较集团与客户的统计口径。2026 年前九个月 2.11 亿 MWh 包含节省或电气化的能源。CNBM 的案例报告单位产出能耗下降 3–5%，投资回收期不足两年。点击交代单个案例的外推限制。交接问题：工厂可以看生产记录，家庭用电与供应商减排又该查谁的记录？
+05 / 利益相关者与验证责任。画两行。第一行：公司及基金会提供资源，本地运营商维护供电，家庭报告账单、停电和使用情况。第二行：采购团队设条件，供应商改造并记录排放，集团汇总核算。区分内部与外部角色，指出扩覆盖和后续运维之间的资源取舍。下一页顺着第一行走。
+06 / 社会 ToC。按官方五格展开投入、活动、产出、中期成果、长期影响，每格配叙述和数量；区分历史基线、小组推演和官方目标。2026 Q3 累计触达 6,900 万人，2030 官方目标 1 亿人。链条成立依赖当地维修和家庭支付能力。
+07 / 社会证据检验。距覆盖目标 3,100 万人。点击转入同批家庭 12 个月回访：仍在用电的比例、停电时长、能源支出占比及失访人数。用 Lee 等人的研究说明回访理由。转场：家庭接入以后要查服务；同理，供应商取得资格以后要查排放。
+08 / 环境 ToC。沿第 5 页第二行，按五格讲工具覆盖、培训、资格、同批供应商排放变化及 2030 贡献。1,200 多家获配工具、10 场训练营、135 家取得资格；1,500 家合格供应商是官方 2030 目标。两期供应商清单是拟议验证方法。
+09 / 环境证据检验。图中分列自身与价值链：Scope 1+2 在 2026 Q3 较 2017 年减 83%，目标 90%；Scope 3 在 FY2025 较 2021 年减 12%，目标 25%。点击说明客户使用售出产品也影响 Scope 3。集团趋势可以观察，供应商贡献需要同边界实测。
+10 / 三个 SDG 的横向评价。成员五首次集中给出编号、名称和评价。SDG 7 经济适用的清洁能源：覆盖有证据，可靠性及负担需回访。SDG 9 产业、创新和基础设施：CNBM 单位产出能耗直接对应 9.4，适用范围为一个客户案例。SDG 13 气候行动：集团减排有基准，供应商归因尚需实测。用同一问题比较三列：证据支持多大范围的结论？
+11 / 课堂选择与结论。问全班，预算只允许做一次核验，选家庭回访还是供应商排放复核？小组建议优先做家庭回访，因为它直接检验开场提出的可负担性问题。点击回扣中心立场，只用前面展示过的证据。
+12 / APA 7 参考文献。结束口头陈述，保留可查证的文献；使命引语、数字和图表在出现页也要注明来源。
 
-Text convention
-The descriptions below are production notes. Every audience-facing text field displays the literal [empty]. Header (left and right), headline, source and footer fields are reserved on each slide. Chart geometry and staged reveals carry over from the data edition.
-
-01  Cover
-    Header left/right: [empty] / [empty]
-    Multiline title: [empty] / [empty] / [empty]
-    Subtitle: [empty]. Footer left/right: [empty] / [empty].
-    Keep the thin arcs on the right.
-
-02  Mission and position
-    Two horizontal rows, each with side label [empty], statement [empty] and supporting detail [empty].
-    Show the mission row first. Reveal the judgement row on click.
-
-03  Three impact measures
-    Three equal KPI columns for household reach, customer efficiency and operational emissions.
-    Each column: measure label [empty], large figure [empty], definition and reporting period [empty].
-
-04  Stakeholders
-    Three columns for internal teams, delivery partners and end users.
-    Each column: group label [empty], role [empty], evidence or responsibility [empty].
-    Bottom takeaway: [empty].
-
-05  Industrial efficiency
-    Three KPI columns for portfolio scale, energy intensity at the customer site and investment recovery.
-    Each column: label [empty], figure [empty], scope or period [empty].
-    Click to reveal the interpretation beneath the row: [empty].
-
-06  Energy-access Theory of Change
-    Five boxes, left to right: inputs, processes, outputs, outcomes, impact.
-    Each box: stage heading [empty], measure and timeframe [empty].
-    Method note below: [empty].
-
-07  Household reach
-    One horizontal progress bar. Above it: value [empty] and reporting basis [empty].
-    Scale endpoints: [empty] and [empty]. Research context below: [empty].
-    Click to reveal the proposed household follow-up: [empty].
-
-08  Supplier Theory of Change
-    Five boxes for tools, coaching, qualification, follow-up measurement and impact.
-    Each box: stage heading [empty], evidence or target [empty].
-    Attribution note below: [empty].
-
-09  Emissions comparison
-    Two horizontal rows on a common scale. Each row has a solid reported-value bar and a vertical target marker.
-    Each row: emissions scope and baseline [empty], reported value and target [empty].
-    Scale start [empty], legend [empty], scale end [empty]. Click for the interpretation: [empty].
-
-10  Three SDG links
-    Three columns linking household access, industrial resource use and emissions to their respective goals.
-    Each column: impact label [empty], goal number [empty], goal name [empty], evidence [empty].
-
-11  Discussion and conclusion
-    Two stacked choices, one for household follow-up and one for supplier measurement.
-    Each choice: label [empty], option [empty], explanation [empty].
-    Click to reveal the concluding judgement: [empty].
-
-12  References
-    Nine reference rows with hanging indents. Author/date [empty] and linked title [empty] in each row.
-    The journal entry also reserves publication details. Existing source destinations remain attached.
+评分位置：GC001 对应第 5–9 页的内外部利益相关者及两条未来 ToC；GC002 对应第 2–4 和 10 页的使命、三项目标和三个 SDG；GC003 贯穿立场、证据与推论边界；GC004 由每个人的脱稿讲述、因果交接和第 11 页互动体现；GC005 对应逐页来源及第 12 页。
