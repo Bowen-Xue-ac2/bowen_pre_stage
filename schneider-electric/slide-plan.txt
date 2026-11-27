@@ -1,0 +1,64 @@
+SCHNEIDER ELECTRIC — 12-SLIDE LAYOUT PLAN
+
+Art direction
+Use Citi at the presentation level: white canvas, generous margins, blue headlines and data marks, grey rules, Arial typography, and a restrained cover arc. Individual layouts follow their subject: a stakeholder map, a change pathway, a progress bar or a comparison chart.
+
+Text convention
+The descriptions below are production notes. Every audience-facing text field displays the literal [empty]. Header (left and right), headline, source and footer fields are reserved on each slide. Chart geometry and staged reveals carry over from the data edition.
+
+01  Cover
+    Header left/right: [empty] / [empty]
+    Multiline title: [empty] / [empty] / [empty]
+    Subtitle: [empty]. Footer left/right: [empty] / [empty].
+    Keep the thin arcs on the right.
+
+02  Mission and position
+    Two horizontal rows, each with side label [empty], statement [empty] and supporting detail [empty].
+    Show the mission row first. Reveal the judgement row on click.
+
+03  Three impact measures
+    Three equal KPI columns for household reach, customer efficiency and operational emissions.
+    Each column: measure label [empty], large figure [empty], definition and reporting period [empty].
+
+04  Stakeholders
+    Three columns for internal teams, delivery partners and end users.
+    Each column: group label [empty], role [empty], evidence or responsibility [empty].
+    Bottom takeaway: [empty].
+
+05  Industrial efficiency
+    Three KPI columns for portfolio scale, energy intensity at the customer site and investment recovery.
+    Each column: label [empty], figure [empty], scope or period [empty].
+    Click to reveal the interpretation beneath the row: [empty].
+
+06  Energy-access Theory of Change
+    Five boxes, left to right: inputs, processes, outputs, outcomes, impact.
+    Each box: stage heading [empty], measure and timeframe [empty].
+    Method note below: [empty].
+
+07  Household reach
+    One horizontal progress bar. Above it: value [empty] and reporting basis [empty].
+    Scale endpoints: [empty] and [empty]. Research context below: [empty].
+    Click to reveal the proposed household follow-up: [empty].
+
+08  Supplier Theory of Change
+    Five boxes for tools, coaching, qualification, follow-up measurement and impact.
+    Each box: stage heading [empty], evidence or target [empty].
+    Attribution note below: [empty].
+
+09  Emissions comparison
+    Two horizontal rows on a common scale. Each row has a solid reported-value bar and a vertical target marker.
+    Each row: emissions scope and baseline [empty], reported value and target [empty].
+    Scale start [empty], legend [empty], scale end [empty]. Click for the interpretation: [empty].
+
+10  Three SDG links
+    Three columns linking household access, industrial resource use and emissions to their respective goals.
+    Each column: impact label [empty], goal number [empty], goal name [empty], evidence [empty].
+
+11  Discussion and conclusion
+    Two stacked choices, one for household follow-up and one for supplier measurement.
+    Each choice: label [empty], option [empty], explanation [empty].
+    Click to reveal the concluding judgement: [empty].
+
+12  References
+    Nine reference rows with hanging indents. Author/date [empty] and linked title [empty] in each row.
+    The journal entry also reserves publication details. Existing source destinations remain attached.
