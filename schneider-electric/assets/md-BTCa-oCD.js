@@ -1,0 +1,15 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/mermaid.core-CUD3ppOB.js","assets/chunk-Y2CYZVJY-DsF7k-Jl.js","assets/chunk-DUW6YSOI-Dgx8z5s3.js","assets/chunk-M57EVK23-D185DZZk.js","assets/chunk-LEVMRMFU-Bvf3NjTM.js","assets/chunk-AXFCVDMN-Op1X8hcN.js","assets/chunk-X4PVCEUW-Brc842vr.js","assets/chunk-BG4553SI-Dxkha4Rk.js","assets/d3-selection-hK9AMjjF.js","assets/rolldown-runtime-9C0vUP4u.js","assets/index-C8jB7j7J.js","assets/modules/shiki-DXOoyUvU.js","assets/modules/shiki-V4-KMA-J.css","assets/modules/vue-PUfju_T4.js","assets/index-06tCW4YH.css","assets/chunk-STOXU5M4-DcsTspQl.js","assets/chunk-R3KSYZAL-Ct8CxHSQ.js","assets/chunk-6MUBBAK2-CTQysuEN.js","assets/dist-DUMANhcJ.js","assets/chunk-J5ZVWO5B-oDCd-gWO.js","assets/rough.esm-DHFBfceb.js","assets/chunk-DQASFODM-BlfrXzU9.js"])))=>i.map(i=>d[i]);
+import{E as e,G as t,I as n,Q as r,R as i,S as a,_ as o,_t as s,g as c,lt as l,y as u,yt as d}from"./modules/shiki-DXOoyUvU.js";import{_t as f,et as p,tt as m}from"./index-C8jB7j7J.js";import{t as h}from"./slidev/default-C_G2EZ69.js";var g=`flowchart LR
+  A["施耐德采购团队<br/>向 1,200+ 家供应商提供工具"] --> B["供应商盘查排放<br/>设定目标并接受辅导"]
+  B --> C["项目资格评定<br/>2026 Q3 已有 135 家合格"]
+  C --> D["2030 项目目标<br/>1,500 家合格供应商"]
+  B --> E["供应商工厂实施改造<br/>提高能效或更换电源"]
+  E --> F["2027–28 拟议核验<br/>同批工厂改造前后 tCO₂e"]
+  F --> G["核算上游采购贡献<br/>按采购量和电网因子拆分"]
+  classDef action fill:#edf4ef,stroke:#83a491,color:#163c2d;
+  classDef result fill:#dcece2,stroke:#427a5a,color:#164930;
+  classDef verify fill:#174a38,stroke:#174a38,color:#ffffff;
+  class A,B,E action;
+  class C,D,G result;
+  class F verify;
+`,_={class:`supplier-arch`},v=[`innerHTML`],y={__name:`SupplierArchitecture`,setup(e){let{$slidev:r,$nav:a,$clicksContext:o,$clicks:s,$page:d,$renderContext:p,$frontmatter:h}=m(),y=l(``),b=`supply`+t().replace(/[^a-z0-9]/gi,``);return n(async()=>{let{default:e}=await f(async()=>{let{default:e}=await import(`./mermaid.core-CUD3ppOB.js`);return{default:e}},__vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]));e.initialize({startOnLoad:!1,theme:`base`,htmlLabels:!1,securityLevel:`strict`,themeVariables:{fontFamily:`Arial, sans-serif`,fontSize:`16px`,lineColor:`#46755c`},flowchart:{htmlLabels:!1,curve:`monotoneX`,rankSpacing:32,nodeSpacing:34,padding:12,diagramPadding:6}}),y.value=(await e.render(b,g)).svg}),(e,t)=>(i(),u(`div`,_,[t[0]||=c(`h1`,null,`供应商取得资格后，怎样核验减排？`,-1),c(`div`,{class:`arch-svg`,innerHTML:y.value,role:`img`,"aria-label":`采购团队提供工具后，供应商分别进入资格评定和工厂改造路径。改造项目需实测排放，再核算采购贡献。`},null,8,v),t[1]||=c(`div`,{class:`arch-target`},[c(`b`,null,`2030 集团目标`),c(`span`,null,`Scope 3 较 2021 年减 25%。上游采购是其中一项来源。`)],-1),t[2]||=c(`div`,{class:`arch-boundary`},`核算边界：自有运营 Scope 1+2 另以 2017 年为基准；客户避免排放单列。`,-1),t[3]||=c(`div`,{class:`arch-cite`},`资料：Schneider Electric，2025 可持续发展报告（第 23–25、80 页）、2026 Q3 进展、Impact 2030；核验方案据小组调研。`,-1)]))}},b={__name:`slides.md__slidev_7`,setup(t){let{$slidev:n,$nav:c,$clicksContext:l,$clicks:u,$page:f,$renderContext:g,$frontmatter:_}=m();return l.setup(),(t,n)=>{let c=y;return i(),o(h,d(e(s(p)(s(_),6))),{default:r(()=>[a(c)]),_:1},16)}}};export{b as default};
