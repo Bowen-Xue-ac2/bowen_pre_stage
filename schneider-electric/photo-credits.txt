@@ -1,0 +1,16 @@
+Goal 7 — Flakkebjerg agrivoltaic system. Photograph by Adam R. Jensen, distributed in the pvlib-python documentation. BSD-3-Clause; see pvlib-license.txt.
+https://github.com/pvlib/pvlib-python/blob/main/docs/sphinx/source/_images/agrivoltaics_system.jpg
+
+Goal 9 — DSCOVR launch on Falcon 9. SpaceX Photos, public domain per scikit-image's dataset documentation.
+https://www.flickr.com/photos/spacexphotos/16511594820/
+https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.rocket
+
+Goal 13 — Grosser Aletschgletscher 3196. Photograph by Dirk Beyer, CC BY-SA 3.0. Resized copy via OGGM Glacier Gallery. The displayed crop is under the same license.
+https://commons.wikimedia.org/wiki/File:Grosser_Aletschgletscher_3196.JPG
+https://creativecommons.org/licenses/by-sa/3.0/
+https://github.com/OGGM/glacier-gallery/blob/master/glacier_photos/aletsch.jpg
+
+Photographs are displayed in cropped frames. Goal titles and descriptions: United Nations.
+https://sdgs.un.org/goals/goal7
+https://sdgs.un.org/goals/goal9
+https://sdgs.un.org/goals/goal13
