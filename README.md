@@ -16,6 +16,7 @@ This is the public distribution repository for the built sites. Editable authori
 
 | Project | What you can explore | Open |
 | --- | --- | --- |
+| **Schneider Electric · Impact 2030** | Visual planning workbook on energy access, industrial efficiency and supplier emissions | [Open workbook](https://bowen-xue-ac2.github.io/bowen_pre_stage/schneider-electric/#/1) |
 | **People & Organisations · Topic 4** | Servant vs traditional leadership, told with animated visuals and staged reveals | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) |
 | **US Airlines · Economy** | Fuel costs, price elasticity, and how airlines respond to rivals | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) |
 | **SILCAI · Product Sandbox** | Rearrange a simulated mobile homepage and try a proposed feature | [Open showcase](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/) |
