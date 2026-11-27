@@ -1,4 +1,4 @@
-Goal 7 — Flakkebjerg agrivoltaic system. Photograph by Adam R. Jensen, distributed in the pvlib-python documentation. BSD-3-Clause; see pvlib-license.txt.
+Slide 3 background and Goal 7 — Flakkebjerg agrivoltaic system. Photograph by Adam R. Jensen, distributed in the pvlib-python documentation. BSD-3-Clause; see pvlib-license.txt.
 https://github.com/pvlib/pvlib-python/blob/main/docs/sphinx/source/_images/agrivoltaics_system.jpg
 
 Goal 9 — DSCOVR launch on Falcon 9. SpaceX Photos, public domain per scikit-image's dataset documentation.
