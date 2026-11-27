@@ -4,7 +4,7 @@
 
 **Bowen’s browser-first stage for interactive presentations and product showcases.**
 
-[US Airlines](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) · [People & Organisations](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) · [SILCAI Sandbox](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/)
+[Schneider Electric](https://bowen-xue-ac2.github.io/bowen_pre_stage/schneider-electric/#/1) · [US Airlines](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) · [People & Organisations](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) · [SILCAI Sandbox](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/)
 
 [Showcases](#showcases) · [Quick start](#quick-start) · [Build and publish](#build-and-publish) · [Contributing](#contributing) · [Credits](#credits-and-licensing)
 
@@ -16,10 +16,25 @@ This is the public distribution repository for the built sites. Editable authori
 
 | Project | What you can explore | Open |
 | --- | --- | --- |
-| **Schneider Electric · Impact 2030** | Editable slide layouts for energy access, industrial efficiency and supplier emissions | [Open presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/schneider-electric/#/1) |
+| **Schneider Electric · Impact 2030** | A 12-slide social impact assessment with interactive diagrams for energy access and supplier emissions | [Open presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/schneider-electric/#/1) |
 | **People & Organisations · Topic 4** | Servant vs traditional leadership, told with animated visuals and staged reveals | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/ppl-org/#/1) |
 | **US Airlines · Economy** | Fuel costs, price elasticity, and how airlines respond to rivals | [Launch presentation](https://bowen-xue-ac2.github.io/bowen_pre_stage/economy-pre/#/1) |
 | **SILCAI · Product Sandbox** | Rearrange a simulated mobile homepage and try a proposed feature | [Open showcase](https://bowen-xue-ac2.github.io/bowen_pre_stage/silcai-sandbox/) |
+
+### Schneider Electric · Impact 2030
+
+A working group presentation evaluating Schneider Electric’s environmental, social and economic impacts. It follows two theories of change through 2030 and connects the three impact aims to UN Sustainable Development Goals 7, 9 and 13. Selected slides retain editable placeholders for the group’s analysis and references.
+
+- **Browser presentation.** Click the slide or press **→** to advance. Press **←** to go back, including through individual reveals. [Open the interactive deck](https://bowen-xue-ac2.github.io/bowen_pre_stage/schneider-electric/#/1) · [Open the self-contained HTML version](https://bowen-xue-ac2.github.io/bowen_pre_stage/schneider-electric/heartbeat.html#/1)
+- **Static PowerPoint.** The 12-slide, 7.46 MB `.pptx` shows each slide fully revealed. Titles, body text, placeholders and diagram labels are editable in PowerPoint. [Download the editable PPTX](schneider-electric/Schneider-Electric-Social-Impact.pptx?raw=true)
+- **Authoring and sources.** The source archive includes the Slidev deck and the Mermaid definition. The slide plan records evidence and remaining content slots. [Download the source](schneider-electric/editable-source.zip?raw=true) · [Read the slide plan](schneider-electric/slide-plan.txt) · [View photo credits](schneider-electric/photo-credits.txt)
+
+| Slides | What to look for |
+| --- | --- |
+| 1–4 | A circuit-board opening, the company mission and three impact aims |
+| 5–6 | Slide 5 uses a five-step fishbone diagram to follow energy access from project inputs to the 2030 goal. Slide 6 leaves space for the evaluation. |
+| 7–8 | Slide 7 uses six clicks to trace supplier qualification, factory upgrades and proposed emissions verification. The heartbeat moves to the current node. Slide 8 leaves space for the environmental evaluation. |
+| 9–12 | Photos illustrate the three UN goals, followed by working layouts for evaluation, conclusion and references |
 
 ### SILCAI · Product Sandbox
 
@@ -82,6 +97,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 Then open:
 
 ```text
+http://localhost:8000/bowen_pre_stage/schneider-electric/#/1
 http://localhost:8000/bowen_pre_stage/ppl-org/
 http://localhost:8000/bowen_pre_stage/economy-pre/
 http://localhost:8000/bowen_pre_stage/silcai-sandbox/
@@ -104,6 +120,7 @@ Everything shipped here is public, including client-side presenter notes. Keep c
 | [Slidev](https://github.com/slidevjs/slidev) | Slide navigation, presentation runtime and presenter notes |
 | [Seriph](https://github.com/slidevjs/themes/tree/main/packages/theme-seriph) | Base theme and typography |
 | [Vue](https://github.com/vuejs/core) + SVG | Custom visual components and pictogram figures |
+| Mermaid | Supplier emissions diagram in the Schneider Electric deck |
 | [GSAP](https://github.com/greensock/GSAP) | Figure motion and animation sequencing |
 | [Lucide](https://github.com/lucide-icons/lucide) | Interface icons |
 | GitHub Pages | Static hosting under project-specific subpaths |
@@ -120,6 +137,13 @@ bowen_pre_stage/
 │   ├── assets/             # Compiled application
 │   └── sources.html        # Source notes
 ├── interview/              # Separate published project
+├── schneider-electric/
+│   ├── index.html          # Interactive Slidev deck
+│   ├── heartbeat.html      # Self-contained interactive deck
+│   ├── Schneider-Electric-Social-Impact.pptx
+│   ├── editable-source.zip
+│   ├── slide-plan.txt
+│   └── photo-credits.txt
 ├── silcai-sandbox/         # Compiled mobile product showcase
 └── ppl-org/
     ├── index.html          # Presentation entry
