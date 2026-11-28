@@ -17,3 +17,5 @@ Telemoji was investigated at https://github.com/saeedtahmtan/telemoji . Its READ
 P09 whole-character bodybuilder silhouette is original SVG artwork made for this revision: exaggerated shoulders, torso, arms and legs, in the existing outlined signage style. No external bodybuilder artwork or rig was copied.
 
 The ten-slide web edition reuses the deck's articulated SVG geometry, poses, Google Noto reactions and finite timeline cues. Its cover is an original contour-line print of the deck's two figures. The Abstract Art Showcase reference supplied by the presenter informed the palette and spacing; no Slidesgo template or artwork is included.
+
+The illustrative conversation photograph is from the U.S. Digital Service website (images/blog-bureaucracy-hacker.jpg, https://github.com/usds/website); cropped in layout and converted to WebP. It depicts a public-service encounter, not Whole Foods staff. The doctor, balance and bottle are original vector drawings.
