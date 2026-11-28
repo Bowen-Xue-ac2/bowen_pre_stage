@@ -15,3 +15,5 @@ Google Animated Noto Emoji replaces Telemoji with Bowen's explicit approval on 2
 Telemoji was investigated at https://github.com/saeedtahmtan/telemoji . Its README redirects original Telegram artwork to Telegram terms without a clear standalone redistribution grant. No Telemoji artwork or code is bundled.
 
 P09 whole-character bodybuilder silhouette is original SVG artwork made for this revision: exaggerated shoulders, torso, arms and legs, in the existing outlined signage style. No external bodybuilder artwork or rig was copied.
+
+The ten-slide web edition reuses the deck's articulated SVG geometry, poses, Google Noto reactions and finite timeline cues. Its cover is an original contour-line print of the deck's two figures. The Abstract Art Showcase reference supplied by the presenter informed the palette and spacing; no Slidesgo template or artwork is included.

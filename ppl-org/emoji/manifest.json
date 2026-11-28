@@ -1,0 +1,32 @@
+{
+  "documentation": "https://googlefonts.github.io/noto-emoji-files/?view=docs",
+  "downloaded_on": "2026-11-16",
+  "assets": [
+    {
+      "file": "1f604.json",
+      "creator": "Google / Noto Emoji",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "official_source": "https://fonts.gstatic.com/s/e/notoemoji/latest/1f604/lottie.json",
+      "download_source": "https://raw.githubusercontent.com/quarrel/noto-emoji-dotlottie/1982a36bb8fb0a3b8791fccc815d91fb72f3e390/noto-anim-lottie.json/1f604.json",
+      "sha256": "1e4231ba433f154548efaf17833fb5b6e2267c9a7f60f0bf65bb6f667f5d45b7",
+      "git_blob_sha": "64d051d5089f3ad0974baf203c42a9d5436783a0",
+      "rest_frame": 92,
+      "changes": "JSON unmodified. Presentation scales artwork, controls a single animation cycle, and selects the supplied rest frame for static/reduced-motion rendering.",
+      "verification": "Matches pinned mirror Git blob; current official CDN byte equality not verified because direct network access is blocked."
+    },
+    {
+      "file": "1f614.json",
+      "creator": "Google / Noto Emoji",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "official_source": "https://fonts.gstatic.com/s/e/notoemoji/latest/1f614/lottie.json",
+      "download_source": "https://raw.githubusercontent.com/quarrel/noto-emoji-dotlottie/1982a36bb8fb0a3b8791fccc815d91fb72f3e390/noto-anim-lottie.json/1f614.json",
+      "sha256": "49cc37e4d1c6a28854f91500342ccd9532812ca8cd2a471b24c2de17522ce2a2",
+      "git_blob_sha": "c2949dcd2ae79f1c12775c99f4eaae368cd6b0c9",
+      "rest_frame": 124,
+      "changes": "JSON unmodified. Presentation scales artwork, controls a single animation cycle, and selects the supplied rest frame for static/reduced-motion rendering.",
+      "verification": "Matches pinned mirror Git blob; current official CDN byte equality not verified because direct network access is blocked."
+    }
+  ]
+}

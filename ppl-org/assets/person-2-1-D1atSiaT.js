@@ -1,1 +1,0 @@
-var e=`/bowen_pre_stage/ppl-org/figures/person-2-0.svg`,t=`/bowen_pre_stage/ppl-org/figures/person-2-1.svg`;export{e as n,t};
